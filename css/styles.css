@@ -1333,7 +1333,7 @@ ul {
 
 .offers-grid {
   display: grid;
-  grid-template-columns: repeat(3, 1fr);
+  grid-template-columns: repeat(2, 1fr);
   gap: 1.5rem;
   margin-bottom: 2.5rem;
 }
@@ -2306,6 +2306,33 @@ ul {
   margin-bottom: 0.6rem;
 }
 
+.service-block__list {
+  display: flex;
+  flex-direction: column;
+  gap: 0;
+  margin-top: 0.5rem;
+  margin-bottom: 0.5rem;
+}
+
+.service-block__list li {
+  font-size: 0.92rem;
+  line-height: 1.65;
+  color: var(--text-muted);
+  padding: 0.6rem 0;
+  border-bottom: 1px solid var(--stone);
+  display: flex;
+  align-items: flex-start;
+  gap: 0.65rem;
+}
+
+.service-block__list li::before {
+  content: '—';
+  color: var(--amber);
+  flex-shrink: 0;
+  font-size: 0.78rem;
+  margin-top: 0.08em;
+}
+
 /* ============================================================
    SPEAKING PAGE
    ============================================================ */
@@ -2482,6 +2509,12 @@ ul {
    RESPONSIVE
    ============================================================ */
 
+@media (max-width: 1100px) {
+  .nav__links {
+    gap: 1.5rem;
+  }
+}
+
 @media (max-width: 1024px) {
   .for-grid {
     grid-template-columns: repeat(2, 1fr);
@@ -2532,6 +2565,8 @@ ul {
   .offers-grid {
     grid-template-columns: 1fr;
     max-width: 580px;
+    margin-left: auto;
+    margin-right: auto;
   }
 
   .why-section__inner {
