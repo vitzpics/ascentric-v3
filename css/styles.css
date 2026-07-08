@@ -2372,6 +2372,28 @@ ul {
   color: var(--text-muted);
 }
 
+.audience-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 1.5rem;
+}
+
+.speaking-two-col {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 5rem;
+  align-items: start;
+}
+
+.credibility-grid {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 2rem;
+  text-align: center;
+  border-top: 1px solid rgba(255,255,255,0.1);
+  padding-top: 3rem;
+}
+
 /* ============================================================
    CONTACT PAGE
    ============================================================ */
@@ -2725,6 +2747,19 @@ ul {
 
   .speaking-card__num {
     font-size: 2rem;
+  }
+
+  .audience-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .speaking-two-col {
+    grid-template-columns: 1fr;
+    gap: 2.5rem;
+  }
+
+  .credibility-grid {
+    grid-template-columns: repeat(2, 1fr);
   }
 
   .creds__inner {
