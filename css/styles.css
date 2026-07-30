@@ -23,7 +23,7 @@
 
   --font-display: 'Cormorant Garamond', Georgia, 'Times New Roman', serif;
   --font-body:    'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
-  --font-logo:    'Syne', -apple-system, BlinkMacSystemFont, sans-serif;
+  --font-logo:    'Cormorant Garamond', Georgia, 'Times New Roman', serif;
 
   --container:    1240px;
   --section-v:    7rem;
@@ -192,9 +192,9 @@ ul {
 
 .nav__logo {
   font-family: var(--font-logo);
-  font-size: 1.25rem;
-  font-weight: 700;
-  letter-spacing: -0.01em;
+  font-size: 1.3rem;
+  font-weight: 500;
+  letter-spacing: 0.03em;
   text-transform: lowercase;
   color: var(--white);
   transition: color 0.3s var(--ease);
@@ -205,7 +205,7 @@ ul {
 
 .nav__logo .logo-dot-io {
   color: var(--amber);
-  font-weight: 600;
+  font-weight: 500;
 }
 
 .nav--scrolled .nav__logo {
@@ -1884,9 +1884,9 @@ ul {
 
 .footer__brand-name {
   font-family: var(--font-logo);
-  font-size: 1.6rem;
-  font-weight: 700;
-  letter-spacing: -0.01em;
+  font-size: 1.8rem;
+  font-weight: 500;
+  letter-spacing: 0.03em;
   text-transform: lowercase;
   color: var(--white);
   margin-bottom: 1rem;
