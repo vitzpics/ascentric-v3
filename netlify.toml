@@ -36,6 +36,11 @@
   to   = "/contact.html"
   status = 200
 
+[[redirects]]
+  from = "/class-iv"
+  to   = "/class-iv.html"
+  status = 200
+
 # Security headers
 [[headers]]
   for = "/*"

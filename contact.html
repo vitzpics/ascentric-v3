@@ -144,6 +144,7 @@
                 <option>Summit Series</option>
                 <option>Culture Cartography / Team Work</option>
                 <option>Speaking, Workshops, or Offsites</option>
+                <option>Class IV Leadership</option>
                 <option>Something else</option>
               </select>
             </div>
@@ -163,6 +164,18 @@
               Adam responds to all inquiries within 48 hours.
             </p>
           </form>
+          <script>
+            // Pre-select the "interest" dropdown when linked from a page like /class-iv?interest=class-iv
+            (function () {
+              var params = new URLSearchParams(window.location.search);
+              var interest = params.get('interest');
+              var map = { 'class-iv': 'Class IV Leadership' };
+              if (interest && map[interest]) {
+                var select = document.getElementById('interest');
+                if (select) select.value = map[interest];
+              }
+            })();
+          </script>
         </div>
       </div>
 

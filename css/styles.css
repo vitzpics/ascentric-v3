@@ -2868,3 +2868,210 @@ ul {
     height: 32px;
   }
 }
+
+/* ============================================================
+   CLASS IV LEADERSHIP — /class-iv landing page
+   Isolated, page-scoped components (all prefixed .civ-).
+   Reuses global tokens/type-scale/buttons — no shared rules
+   above this point are modified.
+   ============================================================ */
+
+.page-hero__inner .civ-hero-sub {
+  font-family: var(--font-display);
+  font-style: italic;
+  font-size: clamp(1.3rem, 2.4vw, 1.75rem);
+  font-weight: 400;
+  line-height: 1.4;
+  color: rgba(255, 255, 255, 0.92);
+  margin-bottom: 1.25rem;
+  max-width: 640px;
+  animation: fadeUp 0.9s var(--ease-out) 0.32s both;
+}
+
+/* ── Context pill row (Why Class IV?) ─────────────────── */
+
+.civ-context-row {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 0.75rem;
+  margin-top: 2.5rem;
+}
+
+.civ-context-pill {
+  font-size: 0.78rem;
+  font-weight: 500;
+  letter-spacing: 0.03em;
+  color: rgba(255, 255, 255, 0.75);
+  border: 1px solid rgba(255, 255, 255, 0.18);
+  padding: 0.55rem 1.25rem;
+  border-radius: 999px;
+  transition: border-color 0.3s var(--ease), color 0.3s var(--ease);
+}
+
+.civ-context-pill:hover {
+  border-color: var(--amber);
+  color: var(--white);
+}
+
+/* ── The River as Classroom ───────────────────────────── */
+
+.civ-river-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 1.25rem;
+  margin-top: 3rem;
+}
+
+.civ-river-item {
+  border: 1px solid rgba(255, 255, 255, 0.14);
+  padding: 1.6rem 1.85rem;
+  transition: border-color 0.3s var(--ease), background 0.3s var(--ease);
+}
+
+.civ-river-item[open] {
+  border-color: var(--amber);
+  background: rgba(255, 255, 255, 0.03);
+}
+
+.civ-river-item summary {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 1rem;
+  cursor: pointer;
+  list-style: none;
+}
+
+.civ-river-item summary::-webkit-details-marker {
+  display: none;
+}
+
+.civ-river-item__label {
+  display: block;
+  font-size: 0.66rem;
+  font-weight: 700;
+  letter-spacing: 0.16em;
+  text-transform: uppercase;
+  color: var(--amber);
+  margin-bottom: 0.4rem;
+}
+
+.civ-river-item__title {
+  font-family: var(--font-display);
+  font-size: 1.3rem;
+  font-weight: 500;
+  color: var(--white);
+  line-height: 1.25;
+}
+
+.civ-river-item__icon {
+  flex-shrink: 0;
+  font-size: 1.4rem;
+  font-weight: 300;
+  color: rgba(255, 255, 255, 0.4);
+  line-height: 1;
+}
+
+.civ-river-item__icon::before {
+  content: '+';
+}
+
+.civ-river-item[open] .civ-river-item__icon {
+  color: var(--amber);
+}
+
+.civ-river-item[open] .civ-river-item__icon::before {
+  content: '\2013';
+}
+
+.civ-river-item__body {
+  margin-top: 1.1rem;
+  padding-top: 1.1rem;
+  border-top: 1px solid rgba(255, 255, 255, 0.14);
+  font-size: 0.92rem;
+  line-height: 1.7;
+  color: rgba(255, 255, 255, 0.65);
+}
+
+/* ── The RAFT Framework ───────────────────────────────── */
+
+.civ-raft-grid {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 1.25rem;
+  margin-top: 3rem;
+}
+
+.civ-raft-card {
+  border: 1px solid rgba(255, 255, 255, 0.14);
+  padding: 2.25rem 1.75rem;
+  transition: border-color 0.3s var(--ease), transform 0.3s var(--ease);
+}
+
+.civ-raft-card:hover {
+  border-color: var(--amber);
+  transform: translateY(-3px);
+}
+
+.civ-raft-card__initial {
+  font-family: var(--font-display);
+  font-size: 2.75rem;
+  font-weight: 500;
+  color: var(--amber);
+  line-height: 1;
+  margin-bottom: 0.85rem;
+}
+
+.civ-raft-card__word {
+  font-size: 0.75rem;
+  font-weight: 700;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+  color: var(--white);
+  margin-bottom: 0.85rem;
+}
+
+.civ-raft-card__desc {
+  font-size: 0.9rem;
+  line-height: 1.6;
+  color: rgba(255, 255, 255, 0.6);
+}
+
+/* ── Three-up offer cards (reuses .offer-card, 3-col grid) ── */
+
+.civ-offers-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 1.5rem;
+  margin-bottom: 2.5rem;
+}
+
+/* ── Responsive ────────────────────────────────────────── */
+
+@media (max-width: 1024px) {
+  .civ-river-grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+
+  .civ-raft-grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+
+  .civ-offers-grid {
+    grid-template-columns: 1fr;
+    max-width: 580px;
+    margin-left: auto;
+    margin-right: auto;
+  }
+}
+
+@media (max-width: 768px) {
+  .civ-river-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .civ-raft-grid {
+    grid-template-columns: 1fr;
+  }
+}
