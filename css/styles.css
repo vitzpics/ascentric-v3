@@ -2395,6 +2395,56 @@ ul {
 }
 
 /* ============================================================
+   ORG PROOF — LOGO CREDIBILITY SECTION
+   ============================================================ */
+
+.org-proof {
+  background: var(--dark);
+  padding: 4rem var(--section-h);
+  border-top: 1px solid rgba(255,255,255,0.07);
+}
+
+.org-proof__inner {
+  max-width: var(--container);
+  margin: 0 auto;
+  text-align: center;
+}
+
+.org-proof__heading {
+  font-size: 0.65rem;
+  font-weight: 700;
+  letter-spacing: 0.2em;
+  text-transform: uppercase;
+  color: rgba(255,255,255,0.28);
+  margin-bottom: 2.5rem;
+}
+
+.org-proof__logos {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  align-items: center;
+  gap: 2rem 3rem;
+}
+
+.org-proof__logo {
+  display: block;
+  height: 30px;
+  width: auto;
+  filter: brightness(0) invert(1);
+  opacity: 0.75;
+  transition: opacity 0.2s ease;
+}
+
+.org-proof__logo--tall {
+  height: 48px;
+}
+
+.org-proof__logo--cloud {
+  height: 40px;
+}
+
+/* ============================================================
    CONTACT PAGE
    ============================================================ */
 
@@ -2800,5 +2850,21 @@ ul {
   .page-hero__inner {
     padding-top: 100px;
     padding-bottom: 3.5rem;
+  }
+
+  .org-proof__logos {
+    gap: 1.5rem 2rem;
+  }
+
+  .org-proof__logo {
+    height: 24px;
+  }
+
+  .org-proof__logo--tall {
+    height: 36px;
+  }
+
+  .org-proof__logo--cloud {
+    height: 32px;
   }
 }
