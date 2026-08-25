@@ -403,10 +403,10 @@ ul {
 
 .hero {
   position: relative;
-  height: 100vh;
-  min-height: 680px;
+  min-height: max(680px, 100vh);
   display: flex;
   align-items: flex-end;
+  padding-top: 120px;
   overflow: hidden;
 }
 
