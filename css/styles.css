@@ -2147,35 +2147,6 @@ ul {
   align-items: start;
 }
 
-.cc-equation {
-  background: var(--dark);
-  padding: 2.5rem;
-  border-left: 3px solid var(--amber);
-}
-
-.cc-equation__label {
-  font-size: 0.68rem;
-  font-weight: 700;
-  letter-spacing: 0.18em;
-  text-transform: uppercase;
-  color: var(--amber);
-  margin-bottom: 1.25rem;
-}
-
-.cc-equation__formula {
-  font-family: var(--font-display);
-  font-size: 1.4rem;
-  font-weight: 300;
-  line-height: 1.6;
-  color: var(--white);
-  font-style: italic;
-}
-
-.cc-equation__formula em {
-  color: rgba(255,255,255,0.85);
-  font-style: normal;
-}
-
 .cc-dimensions {
   background: var(--cream);
 }
