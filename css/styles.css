@@ -3080,9 +3080,17 @@ ul {
   grid-template-columns: repeat(3, 1fr);
 }
 
+.grid-span-2 {
+  grid-column: span 2;
+}
+
 @media (max-width: 768px) {
   .two-col-grid,
   .three-col-grid {
     grid-template-columns: 1fr;
+  }
+
+  .grid-span-2 {
+    grid-column: span 1;
   }
 }
