@@ -2662,7 +2662,7 @@ ul {
 
 @media (max-width: 768px) {
   :root {
-    --section-v: 4.5rem;
+    --section-v: 3.75rem;
   }
 
   .nav__links { display: none; }
@@ -2686,8 +2686,16 @@ ul {
     padding-right: 0;
   }
 
+  .dynamics-section__inner {
+    gap: 3rem;
+  }
+
   .dynamics-pillars {
     grid-template-columns: 1fr;
+  }
+
+  .dynamics-pillar {
+    padding: 1.65rem 1.45rem;
   }
 
   .about-section__inner {
@@ -2747,10 +2755,16 @@ ul {
 
   .harder-section__inner {
     grid-template-columns: 1fr;
+    gap: 3rem;
+  }
+
+  .harder-signals {
+    padding: 2rem;
   }
 
   .about-story__inner {
     grid-template-columns: 1fr;
+    gap: 3rem;
   }
 
   .about-sidebar {
@@ -2837,6 +2851,26 @@ ul {
 
   .org-proof__logo--cloud {
     height: 32px;
+  }
+
+  .offer-card {
+    padding: 2.5rem 2.25rem;
+  }
+
+  .capability-card {
+    padding: 1.45rem 1.25rem;
+  }
+
+  .about-credentials {
+    padding-top: 1.45rem;
+  }
+
+  .service-block {
+    padding: 2.75rem 0;
+  }
+
+  .civ-offers-grid {
+    margin-bottom: 2rem;
   }
 }
 
@@ -2961,6 +2995,7 @@ ul {
   .civ-scale__row {
     grid-template-columns: 40px 1fr;
     gap: 1rem;
+    padding: 1.15rem 0;
   }
 
   .civ-scale__num {
@@ -3023,6 +3058,31 @@ ul {
 
 @media (max-width: 768px) {
   .capabilities-grid {
+    grid-template-columns: 1fr;
+  }
+}
+
+/* ============================================================
+   RESPONSIVE GRID UTILITIES
+   Fixes pre-existing inline 2/3-col grids (Summit Series,
+   Founder & Operator, Field Lessons, Location & Delivery,
+   What Actually Happens, Who Leads It, etc.) that had no
+   mobile fallback and caused horizontal overflow at ~390px.
+   ============================================================ */
+
+.two-col-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+}
+
+.three-col-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+}
+
+@media (max-width: 768px) {
+  .two-col-grid,
+  .three-col-grid {
     grid-template-columns: 1fr;
   }
 }
