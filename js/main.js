@@ -1,149 +1,115 @@
-/* ============================================================
-   ASCENTRIC — Main JavaScript
-   ============================================================ */
-
+/* Ascentric — progressive enhancement, navigation and the existing Netlify form. */
 (function () {
   'use strict';
-
-  /* ── NAV SCROLL BEHAVIOR ──────────────────────────────── */
-
   const nav = document.querySelector('.nav');
-
-  function handleNavScroll() {
-    if (window.scrollY > 40) {
-      nav.classList.add('nav--scrolled');
-    } else {
-      nav.classList.remove('nav--scrolled');
-    }
-  }
+  const toggle = document.querySelector('.nav__toggle');
+  const menu = document.querySelector('.nav__mobile');
+  const main = document.querySelector('main');
+  const footer = document.querySelector('footer');
+  const reducedMotion = window.matchMedia('(prefers-reduced-motion: reduce)');
 
   if (nav) {
-    window.addEventListener('scroll', handleNavScroll, { passive: true });
-    handleNavScroll(); // run on load
+    const updateNav = () => nav.classList.toggle('nav--scrolled', window.scrollY > 40);
+    window.addEventListener('scroll', updateNav, { passive: true });
+    updateNav();
   }
 
-  /* ── MOBILE MENU ──────────────────────────────────────── */
-
-  const toggle     = document.querySelector('.nav__toggle');
-  const mobileMenu = document.querySelector('.nav__mobile');
-
-  if (toggle && mobileMenu) {
-    toggle.addEventListener('click', function () {
-      const isOpen = mobileMenu.classList.toggle('open');
-      toggle.classList.toggle('open', isOpen);
-      document.body.style.overflow = isOpen ? 'hidden' : '';
-    });
-
-    // Close on link click
-    mobileMenu.querySelectorAll('a').forEach(function (link) {
-      link.addEventListener('click', function () {
-        mobileMenu.classList.remove('open');
-        toggle.classList.remove('open');
-        document.body.style.overflow = '';
-      });
-    });
-  }
-
-  /* ── HERO BG PARALLAX LOAD ────────────────────────────── */
-
-  const heroBg = document.querySelector('.hero__bg');
-  if (heroBg) {
-    // Trigger the zoom-out after first paint
-    requestAnimationFrame(function () {
-      setTimeout(function () {
-        heroBg.classList.add('loaded');
-      }, 100);
-    });
-  }
-
-  /* ── SCROLL REVEAL ────────────────────────────────────── */
-
-  const revealEls = document.querySelectorAll('.reveal');
-
-  if (revealEls.length > 0 && 'IntersectionObserver' in window) {
-    const revealObserver = new IntersectionObserver(
-      function (entries) {
-        entries.forEach(function (entry) {
-          if (entry.isIntersecting) {
-            entry.target.classList.add('visible');
-            revealObserver.unobserve(entry.target);
-          }
-        });
-      },
-      {
-        threshold: 0.12,
-        rootMargin: '0px 0px -40px 0px',
+  if (toggle && menu) {
+    function setMenu(open, restoreFocus) {
+      menu.hidden = !open;
+      menu.inert = !open;
+      menu.classList.toggle('open', open);
+      toggle.classList.toggle('open', open);
+      toggle.setAttribute('aria-expanded', String(open));
+      toggle.setAttribute('aria-label', open ? 'Close menu' : 'Open menu');
+      document.body.classList.toggle('menu-open', open);
+      document.body.style.overflow = open ? 'hidden' : '';
+      if (main) main.inert = open;
+      if (footer) footer.inert = open;
+      if (open) menu.querySelector('a').focus();
+      else if (restoreFocus) toggle.focus();
+    }
+    toggle.addEventListener('click', () => setMenu(menu.hidden, true));
+    menu.querySelectorAll('a').forEach(link => link.addEventListener('click', () => setMenu(false, false)));
+    document.addEventListener('keydown', event => {
+      if (menu.hidden) return;
+      if (event.key === 'Escape') { event.preventDefault(); setMenu(false, true); }
+      if (event.key === 'Tab') {
+        const targets = [toggle, ...menu.querySelectorAll('a')];
+        const index = targets.indexOf(document.activeElement);
+        if (event.shiftKey && index <= 0) { event.preventDefault(); targets[targets.length - 1].focus(); }
+        else if (!event.shiftKey && index === targets.length - 1) { event.preventDefault(); toggle.focus(); }
       }
-    );
-
-    revealEls.forEach(function (el) {
-      revealObserver.observe(el);
     });
-  } else {
-    // Fallback: just show everything
-    revealEls.forEach(function (el) {
-      el.classList.add('visible');
+    window.matchMedia('(min-width: 801px)').addEventListener('change', event => {
+      if (event.matches && !menu.hidden) setMenu(false, false);
     });
   }
 
-  /* ── SMOOTH ANCHOR SCROLL ─────────────────────────────── */
+  const hero = document.querySelector('.hero__bg');
+  if (hero) hero.classList.add('loaded');
+  document.querySelectorAll('.reveal').forEach(element => element.classList.add('visible'));
 
-  document.querySelectorAll('a[href^="#"]').forEach(function (anchor) {
-    anchor.addEventListener('click', function (e) {
-      const target = document.querySelector(this.getAttribute('href'));
+  document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+    anchor.addEventListener('click', event => {
+      const id = anchor.getAttribute('href').slice(1);
+      const target = document.getElementById(id);
       if (!target) return;
-      e.preventDefault();
-      const offset = 80; // nav height
-      const top = target.getBoundingClientRect().top + window.scrollY - offset;
-      window.scrollTo({ top: top, behavior: 'smooth' });
+      event.preventDefault();
+      history.pushState(null, '', '#' + id);
+      target.scrollIntoView({ behavior: reducedMotion.matches ? 'auto' : 'smooth', block: 'start' });
+      if (!target.hasAttribute('tabindex')) target.setAttribute('tabindex', '-1');
+      target.focus({ preventScroll: true });
     });
   });
 
-  /* ── CONTACT FORM SUBMISSION ──────────────────────────── */
-
-  const contactForm = document.getElementById('contact-form');
-
-  if (contactForm) {
-    contactForm.addEventListener('submit', function (e) {
-      e.preventDefault();
-
-      const btn     = contactForm.querySelector('[type="submit"]');
-      const origTxt = btn.textContent;
-
-      btn.textContent = 'Sending…';
-      btn.disabled    = true;
-
-      // Netlify handles the form via the netlify attribute.
-      // This gives visual feedback while it submits.
-      const data = new FormData(contactForm);
-
-      fetch('/', {
-        method: 'POST',
-        headers: { 'Content-Type': 'application/x-www-form-urlencoded' },
-        body: new URLSearchParams(data).toString(),
-      })
-        .then(function () {
-          contactForm.innerHTML =
-            '<p style="font-family:var(--font-display);font-size:1.5rem;color:var(--dark);line-height:1.6;">' +
-            'Thank you. Adam will be in touch shortly.</p>';
-        })
-        .catch(function () {
-          btn.textContent = origTxt;
-          btn.disabled    = false;
-          alert('Something went wrong. Please email hello@ascentric.io directly.');
-        });
-    });
-  }
-
-  /* ── ACTIVE NAV LINK ──────────────────────────────────── */
-
-  const currentPage = window.location.pathname.split('/').pop() || 'index.html';
-  document.querySelectorAll('.nav__links a, .nav__mobile a').forEach(function (link) {
-    const href = link.getAttribute('href') || '';
-    if (href === currentPage || (currentPage === '' && href === 'index.html')) {
-      link.style.opacity = '1';
-      link.style.fontWeight = '600';
+  const current = (window.location.pathname.split('/').pop() || 'index.html').replace(/\.html$/, '');
+  const group = ['culture-cartography', 'class-iv'].includes(current) ? 'approach' : current;
+  document.querySelectorAll('.nav__links a, .nav__mobile a').forEach(link => {
+    if ((link.getAttribute('href') || '').replace(/\.html$/, '') === group && !link.classList.contains('nav__cta') && !link.classList.contains('nav__mobile-cta')) {
+      link.setAttribute('aria-current', 'page');
     }
   });
 
+  const form = document.getElementById('contact-form');
+  if (!form) return;
+  const status = document.getElementById('form-status');
+  const button = form.querySelector('[type="submit"]');
+  const select = document.getElementById('interest');
+  const interestMap = { 'class-iv': 'Class IV Leadership', 'partnerships': 'Partnerships', 'culture': 'Culture & Teams', 'strategy': 'Strategy & Organization', 'leadership': 'Executive Leadership', 'eq-i': 'EQ-i 2.0' };
+  const requestedInterest = new URLSearchParams(window.location.search).get('interest');
+  if (select && interestMap[requestedInterest]) select.value = interestMap[requestedInterest];
+  const localPreview = ['localhost', '127.0.0.1', '[::1]'].includes(window.location.hostname) || window.location.protocol === 'file:';
+  function announce(message, state) {
+    if (!status) return;
+    status.textContent = message;
+    status.dataset.state = state;
+  }
+  if (localPreview) announce('Local preview: this form will not send a message.', 'preview');
+  form.addEventListener('submit', async event => {
+    event.preventDefault();
+    if (localPreview) {
+      announce('Preview only. Your message has not been sent. The existing contact connection is preserved for a future approved release.', 'preview');
+      return;
+    }
+    const label = button.textContent;
+    button.disabled = true;
+    button.textContent = 'Sending…';
+    announce('', 'pending');
+    try {
+      const response = await fetch('/', {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/x-www-form-urlencoded' },
+        body: new URLSearchParams(new FormData(form)).toString()
+      });
+      if (!response.ok) throw new Error('Submission failed');
+      form.reset();
+      announce('Thank you. Your message has been sent. Adam will be in touch.', 'success');
+    } catch (error) {
+      announce('Your message could not be sent. Please try again or email hello@ascentric.io. Your entries are still here.', 'error');
+    } finally {
+      button.disabled = false;
+      button.textContent = label;
+    }
+  });
 })();

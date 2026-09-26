@@ -65,3 +65,19 @@
   for = "/images/*"
   [headers.values]
     Cache-Control = "public, max-age=604800"
+
+# New local refinement routes, effective only after an approved deployment.
+[[redirects]]
+  from = "/approach"
+  to = "/approach.html"
+  status = 200
+
+[[redirects]]
+  from = "/work"
+  to = "/services.html"
+  status = 200
+
+[[redirects]]
+  from = "/offsites"
+  to = "/offsites.html"
+  status = 200
