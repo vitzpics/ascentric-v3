@@ -22,8 +22,16 @@ node --check js/main.js
 node --test tests/main.test.cjs
 ```
 
-The inherited site is plain HTML, CSS, and JavaScript, with no package manifest, build pipeline, TypeScript, or original test suite. These checks validate markup, local links, anchors, assets, form metadata, JavaScript syntax, and contact-form success/failure behavior.
+The inherited site is plain HTML, CSS, and JavaScript, with no package manifest, build pipeline, TypeScript, or original test suite. These checks validate markup, local links, anchors, assets, form metadata, JavaScript syntax, contact-form success/failure behavior, manual carousel navigation, and engagement deep links.
 
 ## Review boundary
 
 There is no publishing remote configured. Nothing has been pushed or deployed. The original Desktop `ascentricv3-source` working folder is separate and unchanged. Review the local site before deciding whether to connect a GitHub remote or release anything.
+
+## Second surgical revision
+
+The current preview adds the earlier founder introduction, concrete engagement options, coaching structure, manual testimonial carousel, conditions graphic, and first-person About story. Speaking is in the primary navigation.
+
+The local draft contains the provisional “Faculty Fellow, Berkeley Institute for Human Connection” title. Confirm it before any release; both occurrences are marked `VERIFY EXACT TITLE BEFORE DEPLOY`. Exact Wayfinder and Hawaiian-studies credential names are omitted pending verification. Two approved testimonials are visible; no third approved source was located.
+
+The Desktop package contains `Review-Second-Revision.md`, the requested screenshots, and an `Open Preview.command` launcher.

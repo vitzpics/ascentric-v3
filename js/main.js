@@ -41,7 +41,7 @@
         else if (!event.shiftKey && index === targets.length - 1) { event.preventDefault(); toggle.focus(); }
       }
     });
-    window.matchMedia('(min-width: 801px)').addEventListener('change', event => {
+    window.matchMedia('(min-width: 1051px)').addEventListener('change', event => {
       if (event.matches && !menu.hidden) setMenu(false, false);
     });
   }
@@ -55,6 +55,7 @@
       const id = anchor.getAttribute('href').slice(1);
       const target = document.getElementById(id);
       if (!target) return;
+      if (target.matches('details')) target.open = true;
       event.preventDefault();
       history.pushState(null, '', '#' + id);
       target.scrollIntoView({ behavior: reducedMotion.matches ? 'auto' : 'smooth', block: 'start' });
@@ -71,12 +72,47 @@
     }
   });
 
+  // Manual, progressively enhanced carousel. All approved quotes remain readable without JS.
+  document.querySelectorAll('.testimonial-carousel').forEach(carousel => {
+    const slides = [...carousel.querySelectorAll('.testimonial-slide')];
+    const controls = carousel.querySelector('.carousel-controls');
+    if (slides.length < 2 || !controls) return;
+    const status = carousel.querySelector('[data-carousel-status]');
+    let currentSlide = 0;
+    function showSlide(index) {
+      currentSlide = (index + slides.length) % slides.length;
+      slides.forEach((slide, i) => {
+        slide.hidden = i !== currentSlide;
+        slide.setAttribute('role', 'group');
+        slide.setAttribute('aria-roledescription', 'slide');
+        slide.setAttribute('aria-label', `${i + 1} of ${slides.length}`);
+      });
+      status.textContent = `${currentSlide + 1} / ${slides.length}`;
+    }
+    controls.hidden = false;
+    carousel.querySelector('[data-carousel-prev]').addEventListener('click', () => showSlide(currentSlide - 1));
+    carousel.querySelector('[data-carousel-next]').addEventListener('click', () => showSlide(currentSlide + 1));
+    carousel.addEventListener('keydown', event => {
+      if (event.key === 'ArrowLeft' || event.key === 'ArrowRight') {
+        event.preventDefault();
+        showSlide(currentSlide + (event.key === 'ArrowRight' ? 1 : -1));
+      }
+    });
+    showSlide(0);
+  });
+  function openLinkedDetails() {
+    const target = document.getElementById(window.location.hash.slice(1));
+    if (target && target.matches('details')) target.open = true;
+  }
+  openLinkedDetails();
+  window.addEventListener('hashchange', openLinkedDetails);
+
   const form = document.getElementById('contact-form');
   if (!form) return;
   const status = document.getElementById('form-status');
   const button = form.querySelector('[type="submit"]');
   const select = document.getElementById('interest');
-  const interestMap = { 'class-iv': 'Class IV Leadership', 'partnerships': 'Partnerships', 'culture': 'Culture & Teams', 'strategy': 'Strategy & Organization', 'leadership': 'Executive Leadership', 'eq-i': 'EQ-i 2.0' };
+  const interestMap = { 'class-iv': 'Class IV', 'partnerships': 'Partnerships', 'culture': 'Culture & Teams', 'strategy': 'Strategy & Organization', 'leadership': 'Executive Leadership', 'eq-i': 'EQ-i 2.0' };
   const requestedInterest = new URLSearchParams(window.location.search).get('interest');
   if (select && interestMap[requestedInterest]) select.value = interestMap[requestedInterest];
   const localPreview = ['localhost', '127.0.0.1', '[::1]'].includes(window.location.hostname) || window.location.protocol === 'file:';
