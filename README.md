@@ -34,6 +34,6 @@ The current preview includes the shorter mobile hero, three homepage engagement 
 
 Carlos Flores, Fuzieh Jallow, and Olesia Gudkovskaya appear in the manual carousel. All three quotations and attributions were recovered from the original website source, with no invented or newly paraphrased testimony.
 
-The provisional “Faculty Fellow, Berkeley Institute for Human Connection” title remains marked `VERIFY EXACT TITLE BEFORE PRODUCTION` in both visible locations. Confirm the exact wording before release. Exact Wayfinder and Hawaiian-studies credential names remain omitted pending verification.
+Adam confirmed the title “Faculty Fellow” on September 29, 2026. Both visible occurrences read “Faculty Fellow, Berkeley Institute for Human Connection”; the title-verification flags have been removed. Exact Wayfinder and Hawaiian-studies credential names remain omitted pending verification.
 
 The Desktop package contains `Review-Final-Pass.md`, updated screenshots under `screenshots/final-pass/`, and the existing `Open Preview.command` launcher. The final report supersedes earlier revision reports.
