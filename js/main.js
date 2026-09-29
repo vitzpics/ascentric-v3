@@ -112,7 +112,19 @@
   const status = document.getElementById('form-status');
   const button = form.querySelector('[type="submit"]');
   const select = document.getElementById('interest');
-  const interestMap = { 'class-iv': 'Class IV', 'partnerships': 'Partnerships', 'culture': 'Culture & Teams', 'strategy': 'Strategy & Organization', 'leadership': 'Executive Leadership', 'eq-i': 'EQ-i 2.0' };
+  const interestMap = {
+    'strategy': 'Strategy & Organization',
+    'culture': 'Culture & Teams',
+    'leadership': 'Executive Leadership / Coaching',
+    'speaking': 'Speaking / Workshop / Offsite',
+    'offsites': 'Speaking / Workshop / Offsite',
+    'partnership': 'Partnership',
+    'partnerships': 'Partnership',
+    // Keep existing method links useful without making methods buyer-facing options.
+    'class-iv': 'Culture & Teams',
+    'culture-cartography': 'Culture & Teams',
+    'eq-i': 'Executive Leadership / Coaching'
+  };
   const requestedInterest = new URLSearchParams(window.location.search).get('interest');
   if (select && interestMap[requestedInterest]) select.value = interestMap[requestedInterest];
   const localPreview = ['localhost', '127.0.0.1', '[::1]'].includes(window.location.hostname) || window.location.protocol === 'file:';

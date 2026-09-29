@@ -30,8 +30,22 @@ test('An HTTP failure cannot display success or clear the message', async () => 
 test('A network failure preserves the message and enables retry', async () => {
  const f = fixture({reject:true}); await f.submit(); assert.equal(f.status.dataset.state,'error'); assert.equal(f.resetCount(),0); assert.equal(f.button.disabled,false);
 });
-test('Existing Class IV contact links still select the correct interest', () => {
- assert.equal(fixture({search:'?interest=class-iv'}).select.value,'Class IV');
+test('Current and legacy inquiry links select an available buyer-facing option', () => {
+ const html = fs.readFileSync(path.join(__dirname, '../contact.html'), 'utf8');
+ const options = [...html.matchAll(/<option>(.*?)<\/option>/g)].map(m => m[1].replaceAll('&amp;', '&'));
+ assert.equal(options.length, 6);
+ const cases = {
+   strategy: 'Strategy & Organization', culture: 'Culture & Teams',
+   leadership: 'Executive Leadership / Coaching', 'eq-i': 'Executive Leadership / Coaching',
+   'class-iv': 'Culture & Teams', 'culture-cartography': 'Culture & Teams',
+   speaking: 'Speaking / Workshop / Offsite', offsites: 'Speaking / Workshop / Offsite',
+   partnership: 'Partnership', partnerships: 'Partnership'
+ };
+ for (const [key, expected] of Object.entries(cases)) {
+   const value = fixture({search: '?interest=' + key}).select.value;
+   assert.equal(value, expected);
+   assert.ok(options.includes(value), key + ' must match a real select option');
+ }
  assert.equal(fixture({search:'?interest=unknown'}).select.value,'');
 });
 

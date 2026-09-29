@@ -28,10 +28,12 @@ The inherited site is plain HTML, CSS, and JavaScript, with no package manifest,
 
 There is no publishing remote configured. Nothing has been pushed or deployed. The original Desktop `ascentricv3-source` working folder is separate and unchanged. Review the local site before deciding whether to connect a GitHub remote or release anything.
 
-## Second surgical revision
+## Final pre-launch editing pass
 
-The current preview adds the earlier founder introduction, concrete engagement options, coaching structure, manual testimonial carousel, conditions graphic, and first-person About story. Speaking is in the primary navigation.
+The current preview includes the shorter mobile hero, three homepage engagement paths, six buyer-facing inquiry options, the revised friction graphic, consistent personal/firm voice, and updated page titles and descriptions. The About photographs follow portrait → adult facilitation → Global Routes group in the field.
 
-The local draft contains the provisional “Faculty Fellow, Berkeley Institute for Human Connection” title. Confirm it before any release; both occurrences are marked `VERIFY EXACT TITLE BEFORE DEPLOY`. Exact Wayfinder and Hawaiian-studies credential names are omitted pending verification. Two approved testimonials are visible; no third approved source was located.
+Carlos Flores, Fuzieh Jallow, and Olesia Gudkovskaya appear in the manual carousel. All three quotations and attributions were recovered from the original website source, with no invented or newly paraphrased testimony.
 
-The Desktop package contains `Review-Second-Revision.md`, the requested screenshots, and an `Open Preview.command` launcher.
+The provisional “Faculty Fellow, Berkeley Institute for Human Connection” title remains marked `VERIFY EXACT TITLE BEFORE PRODUCTION` in both visible locations. Confirm the exact wording before release. Exact Wayfinder and Hawaiian-studies credential names remain omitted pending verification.
+
+The Desktop package contains `Review-Final-Pass.md`, updated screenshots under `screenshots/final-pass/`, and the existing `Open Preview.command` launcher. The final report supersedes earlier revision reports.

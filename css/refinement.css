@@ -487,3 +487,28 @@ details[open] > summary .disclosure-symbol { transform: rotate(45deg); }
  .gap-space > span { font-size: 1.5rem; }
  .gap-space p { display: none; }
 }
+
+/* Final editing pass: buying paths and a shorter mobile introduction. */
+.engagement-preview { grid-template-columns: repeat(3, 1fr); gap: 2rem; }
+.engagement-preview p { color: var(--text-muted); font-size: .88rem; line-height: 1.8; }
+.engagement-preview a > span:last-child { margin-top: auto; }
+.practice-doors-mobile { display: none; }
+.gap-space { top: 44%; left: 64%; }
+.gap-space > span { font-size: 1.2rem; letter-spacing: .08em; text-transform: uppercase; }
+@media (max-width: 600px) {
+ .strategy-hero .hero__content { padding-top: 24px; padding-bottom: 32px; }
+ .strategy-hero .hero__eyebrow { margin-bottom: 1.3rem; }
+ .strategy-hero .hero__heading { font-size: clamp(2.7rem, 9.7vw, 3.8rem); }
+ .strategy-hero .hero-doors, .strategy-hero .hero__actions .text-link { display: none; }
+ .founder-early .section-shell { padding-top: 2rem; }
+ .practice-doors-mobile { display: grid; margin-top: 2rem; }
+ .practice-doors-mobile a { color: var(--dark); border-color: var(--soft-line); }
+ .practice-doors-mobile .door-hint { color: var(--accent-ink); }
+ .practice-doors-mobile a:hover, .practice-doors-mobile a:focus-visible { color: var(--accent-ink); border-color: var(--accent-ink); }
+ .engagement-preview { grid-template-columns: 1fr; gap: 1.7rem; }
+ .engagement-preview a { display: grid; grid-template-columns: 1fr auto; gap: .65rem 1rem; }
+ .engagement-preview p { grid-column: 1; }
+ .engagement-preview a > span:last-child { grid-column: 2; grid-row: 1; margin: 0; }
+ .gap-space { top: 47%; left: 61%; }
+ .gap-space > span { font-size: 1rem; letter-spacing: .03em; }
+}
