@@ -37,14 +37,14 @@ Carlos Flores, Fuzieh Jallow, and Olesia Gudkovskaya appear in the manual carous
 
 Adam confirmed the title “Faculty Fellow” on September 29, 2026. The homepage and About present “Faculty Fellow” with “Berkeley Institute for Human Connection” as a current professional affiliation, distinct from executive coaching training; the title-verification flags have been removed. Exact Wayfinder and Hawaiian-studies credential names remain omitted pending verification.
 
-The latest Desktop review is `Review-Credibility-Pass.md`, with screenshots in `screenshots/credibility-pass/` and the existing `Open Preview.command` launcher. It supersedes the earlier reports.
+The latest Desktop assessment is `Release-Readiness.md`, with screenshots and responsive evidence in `screenshots/release-check/`. `Review-Credibility-Pass.md` retains the broader content review. The existing `Open Preview.command` launcher starts the local preview.
 
 
 ## Final credibility and launch metadata
 
 The current homepage contains twelve organizations in this order: Google, Microsoft, DHL, UC Berkeley, Peace Corps, State of Hawaiʻi, Tulane University, Boston Public Schools, AmeriCorps, New Orleans Health Department, City Year, and InstaDeep. The heading reads: “Across more than two decades, Adam’s work has spanned organizations and programs including:” with the supporting qualifier “Through coaching, facilitation, teaching, organizational leadership, training, and partnership.”
 
-About separates the confirmed current affiliation, training, and career experience. The state identity reflects Adam’s work in Hawaiʻi’s schools; no specific transportation-agency relationship is stated. The specific New Orleans Health Department mark is included.
+About separates the confirmed current affiliation, training, and career experience. The underlying relationship for the State of Hawaiʻi proof item is State of Hawaiʻi, Department of Transportation, as confirmed by Adam in the final release check. The existing state seal and public label are retained. The specific New Orleans Health Department mark is included.
 
 All nine pages have canonical and social metadata, favicons, and reserved image dimensions. The canonical origin is `https://ascentric.io`; the sitemap matches the existing clean-route configuration. A new 1200 × 630 typographic sharing card uses the approved headline and existing visual identity. `tests/verify_metadata.py` checks these assets and metadata without adding dependencies.
 
