@@ -512,3 +512,43 @@ details[open] > summary .disclosure-symbol { transform: rotate(45deg); }
  .gap-space { top: 47%; left: 61%; }
  .gap-space > span { font-size: 1rem; letter-spacing: .03em; }
 }
+
+/* Credibility refinement: current affiliation, career breadth, and twelve quiet marks. */
+.credibility-strip { grid-template-columns: 1.1fr 1.35fr 1.15fr .65fr; gap: 2rem; }
+.credibility-strip strong, .credibility-strip span { display: block; }
+.credibility-strip strong { color: var(--dark); font-size: .78rem; font-weight: 500; line-height: 1.6; margin-bottom: .45rem; }
+.credibility-strip span { font-size: .68rem; line-height: 1.8; }
+.credibility-affiliation strong { color: var(--accent-ink); }
+.refined-page .org-proof__heading { max-width: 880px; margin: 0 auto .65rem; font-size: .77rem; line-height: 1.9; letter-spacing: .025em; font-weight: 400; text-transform: none; color: #d1d0cf; }
+.org-proof__logos { display: grid; grid-template-columns: repeat(6, minmax(0, 1fr)); column-gap: 2.3rem; row-gap: 2.5rem; }
+.org-proof__mark { min-width: 0; height: 66px; display: flex; align-items: center; justify-content: center; }
+.org-proof__mark .org-proof__logo { width: auto; height: auto; max-width: 100%; max-height: 32px; object-fit: contain; }
+.org-proof__mark .org-proof__logo--bps { max-height: 48px; }
+.org-proof__mark .org-proof__logo--city-year { max-height: 64px; filter: grayscale(1); }
+.org-proof__context { max-width: 750px; margin: 3rem auto 0; color: #b9babc; font-size: .82rem; line-height: 1.9; }
+.career-context { margin-top: 2rem; padding-top: 1.5rem; border-top: 1px solid var(--soft-line); }
+.career-context .micro-label { font-size: .65rem !important; color: var(--accent-ink) !important; }
+.career-context p:not(.micro-label) { font-size: .87rem !important; }
+.affiliation-institution { font-family: var(--font-display); font-size: 1.65rem !important; line-height: 1.35 !important; color: var(--accent-ink) !important; }
+@media (max-width: 1050px) {
+ .org-proof__logos { grid-template-columns: repeat(4, minmax(0, 1fr)); }
+ .credibility-strip { grid-template-columns: 1fr 1fr; gap: 1.5rem 2rem; }
+}
+@media (max-width: 600px) {
+ .org-proof__logos { grid-template-columns: repeat(2, minmax(0, 1fr)); column-gap: 2.5rem; row-gap: 1.5rem; }
+ .refined-page .org-proof__heading { font-size: .74rem; margin-bottom: .65rem; }
+ .org-proof__context { text-align: left; font-size: .78rem; margin-top: 2rem; }
+ .credibility-strip { grid-template-columns: 1fr 1fr; gap: 1.4rem; }
+ .credibility-strip strong { font-size: .73rem; }
+ .credibility-strip span { font-size: .65rem; }
+ .about-human-hero .about-opening-note { font-size: .84rem; }
+}
+
+
+
+.org-proof__qualifier { max-width: 800px; margin: 0 auto 3rem; color: #b9babc; font-size: .7rem; line-height: 1.85; }
+.org-proof__mark .org-proof__logo--hawaii { max-height: 66px; filter: grayscale(1); }
+.org-proof__mark .org-proof__logo--nohd { max-height: 54px; filter: grayscale(1) invert(1); mix-blend-mode: screen; }
+@media (max-width: 600px) {
+ .org-proof__qualifier { font-size: .68rem; margin-bottom: 2rem; }
+}
