@@ -1,0 +1,312 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta
+    name="description"
+    content="Book a one-hour executive coaching session with Adam Aronovitz. Ongoing coaching for founders and leaders navigating real decisions, tensions, and complexity."
+  />
+  <title>Executive Coaching with Adam Aronovitz — Ascentric</title>
+  <link rel="stylesheet" href="css/styles.css" />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <style>
+    .booking-page {
+      min-height: 100vh;
+      padding: 9.5rem 5% 6rem;
+      background: var(--cream);
+    }
+
+    .booking-page__inner {
+      width: 100%;
+      max-width: var(--container);
+      margin: 0 auto;
+      display: grid;
+      grid-template-columns: minmax(0, 0.82fr) minmax(460px, 1.18fr);
+      gap: clamp(3rem, 6vw, 6.5rem);
+      align-items: start;
+    }
+
+    .booking-copy {
+      position: sticky;
+      top: 8.5rem;
+      padding-top: 1rem;
+    }
+
+    .booking-copy .eyebrow {
+      margin-bottom: 1.25rem;
+    }
+
+    .booking-copy h1 {
+      color: var(--dark);
+      max-width: 620px;
+      margin-bottom: 1rem;
+    }
+
+    .booking-copy__sub {
+      font-family: var(--font-display);
+      font-size: clamp(1.9rem, 3.5vw, 3rem);
+      font-weight: 400;
+      font-style: italic;
+      line-height: 1.15;
+      color: var(--amber);
+      margin-bottom: 2.25rem;
+    }
+
+    .booking-copy__body {
+      max-width: 560px;
+      font-size: 1.05rem;
+      line-height: 1.82;
+      color: var(--text-muted);
+      margin-bottom: 2rem;
+    }
+
+    .booking-copy__credential {
+      max-width: 560px;
+      padding-top: 1.6rem;
+      border-top: 1px solid var(--stone);
+      font-size: 0.9rem;
+      line-height: 1.7;
+      color: var(--text-muted);
+    }
+
+    .booking-copy__credential a {
+      color: var(--amber);
+      text-decoration: underline;
+      text-underline-offset: 3px;
+      text-decoration-thickness: 1px;
+    }
+
+    .booking-copy__credential a:hover {
+      color: var(--amber-hover);
+    }
+
+    .booking-card {
+      background: var(--white);
+      border: 1px solid var(--stone);
+      box-shadow: 0 24px 70px rgba(22, 24, 29, 0.08);
+      padding: clamp(1rem, 2.5vw, 2rem);
+      min-width: 0;
+    }
+
+    .booking-card__header {
+      padding: 0.5rem 0.5rem 1.25rem;
+      border-bottom: 1px solid var(--stone);
+      margin-bottom: 1rem;
+    }
+
+    .booking-card__header p {
+      font-size: 0.72rem;
+      font-weight: 700;
+      letter-spacing: 0.16em;
+      text-transform: uppercase;
+      color: var(--amber);
+      margin: 0;
+    }
+
+    .booking-card .tidycal-embed {
+      width: 100%;
+      min-height: 650px;
+    }
+
+    .booking-card__fallback {
+      border-top: 1px solid var(--stone);
+      margin-top: 1rem;
+      padding: 1.5rem 0.5rem 0.5rem;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 1.25rem;
+      flex-wrap: wrap;
+    }
+
+    .booking-card__fallback p {
+      margin: 0;
+      font-size: 0.85rem;
+      line-height: 1.6;
+      color: var(--text-muted);
+    }
+
+    .booking-card__fallback .btn {
+      white-space: nowrap;
+    }
+
+    @media (max-width: 960px) {
+      .booking-page {
+        padding-top: 8.5rem;
+      }
+
+      .booking-page__inner {
+        grid-template-columns: 1fr;
+        gap: 3.5rem;
+      }
+
+      .booking-copy {
+        position: static;
+        padding-top: 0;
+      }
+
+      .booking-copy__body,
+      .booking-copy__credential {
+        max-width: 700px;
+      }
+    }
+
+    @media (max-width: 600px) {
+      .booking-page {
+        padding: 7.5rem 5% 4rem;
+      }
+
+      .booking-card {
+        padding: 0.75rem;
+        margin-left: -1.5%;
+        margin-right: -1.5%;
+      }
+
+      .booking-card__header {
+        padding: 0.5rem 0.25rem 1rem;
+      }
+
+      .booking-card__fallback {
+        padding: 1.25rem 0.25rem 0.25rem;
+      }
+
+      .booking-card__fallback .btn {
+        width: 100%;
+        justify-content: center;
+      }
+    }
+  </style>
+</head>
+<body>
+
+  <!-- NAVIGATION -->
+  <nav class="nav nav--scrolled" role="navigation" aria-label="Main navigation">
+    <a href="index.html" class="nav__logo" style="color: var(--dark);">ascentric<span class="logo-dot-io">.io</span></a>
+    <ul class="nav__links">
+      <li><a href="services.html" style="color: var(--text-muted);">Work</a></li>
+      <li><a href="culture-cartography.html" style="color: var(--text-muted);">Methodology</a></li>
+      <li><a href="about.html" style="color: var(--text-muted);">About</a></li>
+      <li><a href="speaking.html" style="color: var(--text-muted);">Speaking</a></li>
+      <li><a href="https://tidycal.com/ascentric" target="_blank" rel="noopener" class="nav__cta">Book a Fit Call</a></li>
+    </ul>
+    <button class="nav__toggle" aria-label="Open menu" aria-expanded="false">
+      <span style="background: var(--dark);"></span>
+      <span style="background: var(--dark);"></span>
+      <span style="background: var(--dark);"></span>
+    </button>
+  </nav>
+
+  <div class="nav__mobile" role="dialog" aria-label="Mobile navigation">
+    <a href="services.html">Work</a>
+    <a href="culture-cartography.html">Methodology</a>
+    <a href="about.html">About</a>
+    <a href="speaking.html">Speaking</a>
+    <a href="contact.html">Contact</a>
+    <a href="https://tidycal.com/ascentric" target="_blank" rel="noopener" class="nav__mobile-cta">Book a Fit Call</a>
+  </div>
+
+  <main class="booking-page">
+    <div class="booking-page__inner">
+
+      <section class="booking-copy" aria-labelledby="booking-title">
+        <p class="eyebrow">Executive Coaching</p>
+        <h1 id="booking-title" class="display-lg">Executive Coaching with Adam Aronovitz</h1>
+        <p class="booking-copy__sub">One hour. Yours.</p>
+
+        <p class="booking-copy__body">
+          Ongoing coaching for founders and leaders carrying real decisions, real tensions,
+          and the complexity of this chapter. Come as you are. No prep required unless
+          we’ve agreed otherwise.
+        </p>
+
+        <p class="booking-copy__credential">
+          Berkeley-trained executive coach; faculty with the
+          <a href="https://www.bihc.org" target="_blank" rel="noopener">Berkeley Institute for Human Connection</a>.
+        </p>
+      </section>
+
+      <section class="booking-card" aria-label="Book an executive coaching session">
+        <div class="booking-card__header">
+          <p>Choose a time</p>
+        </div>
+
+        <div
+          class="tidycal-embed"
+          data-path="ascentric/ascentcoaching"
+          data-showavatar="false"
+        ></div>
+
+        <div class="booking-card__fallback">
+          <p>Prefer to book directly in TidyCal?</p>
+          <a
+            href="https://tidycal.com/ascentric/ascentcoaching"
+            target="_blank"
+            rel="noopener"
+            class="btn btn--primary"
+          >
+            Book a session
+          </a>
+        </div>
+      </section>
+
+    </div>
+  </main>
+
+  <!-- FOOTER -->
+  <footer class="footer">
+    <div class="footer__inner">
+      <div class="footer__top">
+        <div>
+          <div class="footer__brand-name">ascentric<span class="logo-dot-io">.io</span></div>
+          <p class="footer__brand-desc">Guiding founder-led teams through the human side of scale.</p>
+          <a href="mailto:hello@ascentric.io" class="footer__email">hello@ascentric.io</a>
+        </div>
+
+        <div class="footer__col">
+          <p class="footer__col-title">Work</p>
+          <ul>
+            <li><a href="services.html#founder-coaching">Founder Coaching</a></li>
+            <li><a href="culture-cartography.html">Culture Cartography™</a></li>
+            <li><a href="services.html#team-alignment">Team Alignment</a></li>
+            <li><a href="speaking.html">Workshops &amp; Ecosystems</a></li>
+          </ul>
+        </div>
+
+        <div class="footer__col">
+          <p class="footer__col-title">Company</p>
+          <ul>
+            <li><a href="about.html">About Adam</a></li>
+            <li><a href="culture-cartography.html">Methodology</a></li>
+            <li><a href="speaking.html">Speaking</a></li>
+            <li><a href="contact.html">Contact</a></li>
+          </ul>
+        </div>
+
+        <div class="footer__col">
+          <p class="footer__col-title">Start Here</p>
+          <ul>
+            <li><a href="https://tidycal.com/ascentric" target="_blank" rel="noopener">Book a Fit Call</a></li>
+            <li><a href="mailto:hello@ascentric.io">Send an Email</a></li>
+            <li><a href="https://linkedin.com/in/adamaronovitz" target="_blank" rel="noopener">LinkedIn</a></li>
+            <li><a href="https://instagram.com/ascentric.io" target="_blank" rel="noopener">Instagram</a></li>
+          </ul>
+        </div>
+      </div>
+
+      <div class="footer__bottom">
+        <p class="footer__copy">&copy; 2026 Ascentric. All rights reserved.</p>
+        <div class="footer__social">
+          <a href="https://linkedin.com/in/adamaronovitz" target="_blank" rel="noopener">LinkedIn</a>
+          <a href="https://instagram.com/ascentric.io" target="_blank" rel="noopener">Instagram</a>
+          <a href="mailto:hello@ascentric.io">Email</a>
+        </div>
+      </div>
+    </div>
+  </footer>
+
+  <script src="https://asset-tidycal.b-cdn.net/js/embed.js" async></script>
+  <script src="js/main.js"></script>
+</body>
+</html>
