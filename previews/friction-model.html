@@ -29,8 +29,11 @@
   .capacity-chart .gap-area { fill: #a56d3d; opacity: .28; }
   .capacity-chart text { fill: #d4d1cd; font-family: var(--font-body); font-size: 15px; }
   .capacity-chart .line-label { font-weight: 600; }
-  .capacity-chart .friction-label { fill: #e7c29e; font-family: var(--font-display); font-size: 28px; }
-  .capacity-chart .axis-label { fill: #aaa7a2; font-size: 13px; letter-spacing: .06em; text-transform: uppercase; }
+  .capacity-chart .gap-label { fill: #e7c29e; font-family: var(--font-display); font-size: 28px; }
+  .capacity-chart .gap-symptoms { fill: #e7c29e; font-size: 13px; }
+  .capacity-chart .axis-label { fill: #d4d1cd; font-size: 14px; font-weight: 600; }
+  .capacity-chart .axis-end { fill: #aaa7a2; font-size: 13px; }
+  .mobile-chart-label, .mobile-chart-key { display: none; }
   .model-explanation { margin: 1.5rem 0 0 74px; max-width: 820px; color: #d4d1cd; font-size: .86rem; line-height: 1.8; }
   .model-explanation strong { color: #f4f0e9; font-weight: 500; }
   .model-note { display: block; margin-top: .65rem; color: #94969a; font-size: .68rem; }
@@ -44,9 +47,16 @@
     .capacity-model { padding: 1.25rem .8rem 1rem; margin-inline: -2%; }
     .capacity-model__title { display: block; }
     .capacity-model__title p { margin-top: .5rem; }
-    .capacity-chart text { font-size: 27px; }
-    .capacity-chart .axis-label { font-size: 22px; }
-    .capacity-chart .friction-label { font-size: 38px; }
+    .capacity-chart .line-label, .capacity-chart .gap-symptoms, .capacity-chart .axis-label, .capacity-chart .axis-end { display: none; }
+    .capacity-chart .gap-label { font-size: 40px; }
+    .mobile-chart-label { display: block; color: #d4d1cd; font-size: .76rem; font-weight: 600; line-height: 1.5; }
+    .mobile-chart-label--y { margin: 1rem 0 -.6rem 2.4rem; }
+    .mobile-chart-label--x { text-align: right; margin: -.4rem .8rem 1.2rem 0; }
+    .mobile-chart-key { display: grid; gap: .55rem; list-style: none; margin: 0 .8rem 1.2rem 2.4rem; }
+    .mobile-chart-key li { color: #d4d1cd; font-size: .72rem; display: flex; align-items: center; gap: .65rem; }
+    .mobile-chart-key span { width: 26px; height: 3px; display: inline-block; flex: 0 0 auto; }
+    .mobile-chart-key .required { background: #d9af89; }
+    .mobile-chart-key .current { background: #d4d1cd; }
     .model-explanation { margin-left: 0; }
   }
 </style>
@@ -62,18 +72,19 @@
 <h1>Understand the gap before choosing the intervention.</h1>
 </div>
 <div>
-<p class="lead">As growth and complexity increase, the organization asks more of its leaders and teams. When decision-making, trust, role clarity, and leadership capacity develop more slowly, the gap creates friction.</p>
+<p class="lead">As growth, interdependence, and consequence increase, the conditions ask more of leaders and teams. When decision-making, trust, role clarity, and leadership capacity develop more slowly, a capacity gap opens.</p>
 </div>
 </div>
 
 <figure class="capacity-model" aria-labelledby="capacity-model-title capacity-model-caption">
 <div class="capacity-model__title">
-<h2 id="capacity-model-title">Demand versus organizational capability</h2>
+<h2 id="capacity-model-title">What the conditions require versus what the organization can currently carry</h2>
 <p>Conceptual model, not measured data</p>
 </div>
+<p class="mobile-chart-label mobile-chart-label--y">Coordination and leadership capacity ↑</p>
 <svg class="capacity-chart" viewBox="0 0 1000 430" role="img" aria-labelledby="chart-title chart-desc">
 <title id="chart-title">Required and current organizational capability as growth and complexity increase</title>
-<desc id="chart-desc">The required capability line rises faster than the current capability line. The widening space between them represents increasing friction risk.</desc>
+<desc id="chart-desc">The capability required by the conditions rises faster than the capability the organization currently has. The widening space between them is the capacity gap, which can show up as overload, bottlenecks, delay, and avoidance.</desc>
 <line class="grid" x1="90" y1="90" x2="940" y2="90"></line>
 <line class="grid" x1="90" y1="170" x2="940" y2="170"></line>
 <line class="grid" x1="90" y1="250" x2="940" y2="250"></line>
@@ -82,15 +93,21 @@
 <path class="gap-area" d="M90 305 C300 278 470 205 620 130 C740 75 840 48 940 38 L940 172 C820 178 710 195 610 218 C450 254 280 288 90 305 Z"></path>
 <path class="required-line" d="M90 305 C300 278 470 205 620 130 C740 75 840 48 940 38"></path>
 <path class="current-line" d="M90 305 C280 288 450 254 610 218 C710 195 820 178 940 172"></path>
-<text class="line-label" x="925" y="28" text-anchor="end">Capability required</text>
-<text class="line-label" x="925" y="200" text-anchor="end">Current capability</text>
-<text class="friction-label" x="690" y="132">Friction risk</text>
-<text class="axis-label" x="515" y="390" text-anchor="middle">Growth and complexity</text>
-<text class="axis-label" transform="translate(28 195) rotate(-90)" text-anchor="middle">Coordination capability</text>
-<text x="90" y="354">Familiar conditions</text>
-<text x="940" y="354" text-anchor="end">Greater interdependence and consequence</text>
+<text class="axis-label" x="90" y="38">Coordination and leadership capacity ↑</text>
+<text class="line-label" x="925" y="28" text-anchor="end">What the conditions require</text>
+<text class="line-label" x="925" y="200" text-anchor="end">What the organization can currently carry</text>
+<text class="gap-label" x="670" y="118">Capacity gap</text>
+<text class="gap-symptoms" x="670" y="144">Overload · bottlenecks · delay · avoidance</text>
+<text class="axis-label" x="940" y="392" text-anchor="end">Growth, interdependence, and consequence →</text>
+<text class="axis-end" x="90" y="354">Lower demands on the system</text>
+<text class="axis-end" x="940" y="354" text-anchor="end">Higher demands on the system</text>
 </svg>
-<figcaption class="model-explanation" id="capacity-model-caption"><strong>The goal is not to eliminate complexity.</strong> It is to develop the human and organizational capacity to meet it. Discovery helps locate the gap before Ascentric recommends what should change.<span class="model-note">The size of the gap represents a conceptual relationship, not a diagnostic score.</span></figcaption>
+<p class="mobile-chart-label mobile-chart-label--x">Growth, interdependence, and consequence →</p>
+<ul class="mobile-chart-key" aria-label="Chart lines">
+<li><span class="required"></span>What the conditions require</li>
+<li><span class="current"></span>What the organization can currently carry</li>
+</ul>
+<figcaption class="model-explanation" id="capacity-model-caption"><strong>The gap itself is not friction.</strong> It is the distance between what the conditions require and what the organization can currently carry. Friction, overload, bottlenecks, delayed decisions, avoidance, and overreliance on a few people are ways that gap may become visible. Discovery helps locate what is actually driving it before Ascentric recommends what should change.<span class="model-note">The size of the gap represents a conceptual relationship, not a diagnostic score.</span></figcaption>
 </figure>
 
 <p class="eyebrow sequence-label">From understanding to action</p>
