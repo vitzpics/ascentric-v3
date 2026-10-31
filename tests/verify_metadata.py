@@ -26,6 +26,7 @@ class Head(HTMLParser):
 def verify():
     config='\n'.join(x for x in (ROOT/'netlify.toml').read_text().splitlines() if not x.lstrip().startswith('#'))
     routes=dict(re.findall(r'from\s*=\s*"([^"]+)"\s+to\s*=\s*"([^"]+)"',config))
+    page_count=len(list(ROOT.glob('*.html')))
     canonicals=[]; titles=[];descriptions=[]
     for file in ROOT.glob('*.html'):
         p=Head();p.feed(file.read_text());assert len(p.canonical)==1,file
@@ -48,8 +49,8 @@ def verify():
         for img in p.images:
             assert img.get('alt'),(file,'empty image alt')
             assert int(img.get('width','0'))>0 and int(img.get('height','0'))>0,(file,'image space not reserved')
-    assert len(canonicals)==len(set(canonicals))==9,'Duplicate or missing canonicals'
-    assert len(set(titles))==9 and len(set(descriptions))==9,'Titles/descriptions must be page-specific'
+    assert len(canonicals)==len(set(canonicals))==page_count,'Duplicate or missing canonicals'
+    assert len(set(titles))==page_count and len(set(descriptions))==page_count,'Titles/descriptions must be page-specific'
     ns={'s':'http://www.sitemaps.org/schemas/sitemap/0.9'}
     sitemap=[e.text for e in ET.parse(ROOT/'sitemap.xml').findall('s:url/s:loc',ns)]
     assert sorted(sitemap)==sorted(canonicals),'Sitemap must contain exactly the canonical pages'
@@ -59,5 +60,5 @@ def verify():
     for file,size in [('favicon-16.png',16),('favicon-32.png',32),('apple-touch-icon.png',180)]:
         data=(ROOT/'assets/icons'/file).read_bytes();assert struct.unpack('>II',data[16:24])==(size,size)
     assert (ROOT/'favicon.ico').read_bytes()[:4]==b'\x00\x00\x01\x00'
-    print('PASS: 9 unique canonical routes and sitemap entries; matching social metadata; 1200×630 share image; favicons; image dimensions; valid SVG logos.')
+    print(f'PASS: {page_count} unique canonical routes and sitemap entries; matching social metadata; 1200×630 share image; favicons; image dimensions; valid SVG logos.')
 if __name__=='__main__':verify()
