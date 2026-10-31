@@ -35,9 +35,10 @@ test('Current and legacy inquiry links select an available buyer-facing option',
  const options = [...html.matchAll(/<option>(.*?)<\/option>/g)].map(m => m[1].replaceAll('&amp;', '&'));
  assert.equal(options.length, 6);
  const cases = {
-   strategy: 'Strategy & Organization', culture: 'Culture & Teams',
-   leadership: 'Executive Leadership / Coaching', 'eq-i': 'Executive Leadership / Coaching',
-   'class-iv': 'Culture & Teams', 'culture-cartography': 'Culture & Teams',
+   strategy: 'Culture Transformation', culture: 'Culture Transformation',
+   'leadership-development': 'Leadership Development', leadership: 'Executive Coaching',
+   coaching: 'Executive Coaching', 'eq-i': 'Executive Coaching',
+   'class-iv': 'Leadership Development', 'culture-cartography': 'Culture Transformation',
    speaking: 'Speaking / Workshop / Offsite', offsites: 'Speaking / Workshop / Offsite',
    partnership: 'Partnership', partnerships: 'Partnership'
  };

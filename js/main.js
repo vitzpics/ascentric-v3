@@ -113,17 +113,19 @@
   const button = form.querySelector('[type="submit"]');
   const select = document.getElementById('interest');
   const interestMap = {
-    'strategy': 'Strategy & Organization',
-    'culture': 'Culture & Teams',
-    'leadership': 'Executive Leadership / Coaching',
+    'strategy': 'Culture Transformation',
+    'culture': 'Culture Transformation',
+    'leadership-development': 'Leadership Development',
+    'leadership': 'Executive Coaching',
+    'coaching': 'Executive Coaching',
     'speaking': 'Speaking / Workshop / Offsite',
     'offsites': 'Speaking / Workshop / Offsite',
     'partnership': 'Partnership',
     'partnerships': 'Partnership',
     // Keep existing method links useful without making methods buyer-facing options.
-    'class-iv': 'Culture & Teams',
-    'culture-cartography': 'Culture & Teams',
-    'eq-i': 'Executive Leadership / Coaching'
+    'class-iv': 'Leadership Development',
+    'culture-cartography': 'Culture Transformation',
+    'eq-i': 'Executive Coaching'
   };
   const requestedInterest = new URLSearchParams(window.location.search).get('interest');
   if (select && interestMap[requestedInterest]) select.value = interestMap[requestedInterest];
