@@ -41,6 +41,11 @@
   to   = "/class-iv.html"
   status = 200
 
+[[redirects]]
+  from = "/coaching-session"
+  to   = "/coaching-session.html"
+  status = 200
+
 # Security headers
 [[headers]]
   for = "/*"
