@@ -46,9 +46,9 @@
   .model__header { display:grid; grid-template-columns:.8fr 1.2fr; gap:3rem; margin-bottom:2rem; }
   .model__header h3 { font-family:var(--font-display); font-size:clamp(2rem,3.8vw,3.4rem); font-weight:400; line-height:1.05; }
   .model__header p { color:#aaa7a2; line-height:1.75; max-width:620px; }
-  .matrix-wrap { max-width:820px; margin:0 auto; }
+  .matrix-wrap { position:relative; max-width:820px; margin:0 auto; padding-left:2.75rem; }
   .matrix-y-title, .matrix-x-title { color:#f4f0e9; font-size:.78rem; font-weight:600; letter-spacing:.03em; }
-  .matrix-y-title { margin:0 0 .75rem 3.4rem; }
+  .matrix-y-title { position:absolute; top:calc(50% - 1.5rem); left:.15rem; margin:0; writing-mode:vertical-rl; transform:translateY(-50%) rotate(180deg); white-space:nowrap; }
   .matrix-x-title { margin:.8rem 0 0 3.4rem; text-align:center; }
   .matrix-body { display:grid; grid-template-columns:2.6rem 1fr; gap:.8rem; }
   .matrix-y-scale { display:flex; flex-direction:column; justify-content:space-between; align-items:center; color:#8f9195; font-size:.62rem; font-weight:700; letter-spacing:.08em; padding:.25rem 0; }
@@ -97,7 +97,8 @@
     .el-section { padding:4rem 0; }
     .conditions { grid-template-columns:1fr; }
     .condition { border-right:0; }
-    .matrix-y-title { margin-left:2.5rem; }
+    .matrix-wrap { padding-left:2rem; }
+    .matrix-y-title { left:0; font-size:.65rem; }
     .matrix-body { grid-template-columns:1.8rem 1fr; gap:.55rem; }
     .matrix-cell { min-height:115px; padding:1rem .75rem; }
     .matrix-cell strong { font-size:1.25rem; }
@@ -173,7 +174,7 @@
 <p>Belonging without challenge can become comfort. Challenge without belonging produces self-protection. Development happens when people feel secure enough to remain present and stretched enough to discover new capacity.</p>
 </div>
 <div class="matrix-wrap" role="img" aria-label="A two by two graph comparing belonging with challenge. High belonging and high challenge create growth and courage.">
-<p class="matrix-y-title">How safe I feel staying present and being real ↑</p>
+<p class="matrix-y-title">More belonging ↑</p>
 <div class="matrix-body"><div class="matrix-y-scale" aria-hidden="true"><span>A LOT</span><span>A LITTLE</span></div><div class="matrix-grid">
 <div class="matrix-cell"><strong>Comfort</strong><span>Safe, but not stretching.</span></div>
 <div class="matrix-cell matrix-cell--focus"><strong>Growth + courage</strong><span>Supported and meaningfully challenged.</span></div>
@@ -181,7 +182,7 @@
 <div class="matrix-cell"><strong>Self-protection</strong><span>The demand is high, but safety is low.</span></div>
 </div></div>
 <div class="matrix-x-scale" aria-hidden="true"><span>A LITTLE</span><span>A LOT</span></div>
-<p class="matrix-x-title">How much the experience asks of me →</p>
+<p class="matrix-x-title">More challenge →</p>
 </div>
 </article>
 
@@ -189,7 +190,7 @@
 <article class="model model--small">
 <div class="model__header"><h3>Ownership × Reflection</h3><p>Experience does not automatically produce learning. People need something real to carry and structured opportunities to make meaning from what happened.</p></div>
 <div class="matrix-wrap" role="img" aria-label="A two by two graph comparing ownership with reflection. High ownership and high reflection create adaptive leadership.">
-<p class="matrix-y-title">How much responsibility I really carry ↑</p>
+<p class="matrix-y-title">More ownership ↑</p>
 <div class="matrix-body"><div class="matrix-y-scale" aria-hidden="true"><span>A LOT</span><span>A LITTLE</span></div><div class="matrix-grid">
 <div class="matrix-cell"><strong>Action without learning</strong></div>
 <div class="matrix-cell matrix-cell--focus"><strong>Adaptive leadership</strong></div>
@@ -197,14 +198,14 @@
 <div class="matrix-cell"><strong>Insight without agency</strong></div>
 </div></div>
 <div class="matrix-x-scale" aria-hidden="true"><span>A LITTLE</span><span>A LOT</span></div>
-<p class="matrix-x-title">How honestly I learn from what happened →</p>
+<p class="matrix-x-title">More reflection →</p>
 </div>
 </article>
 
 <article class="model model--small">
 <div class="model__header"><h3>Belonging × Contribution</h3><p>Inclusion is incomplete when people are welcomed but never trusted to matter. Contribution turns membership into participation and participation into stewardship.</p></div>
 <div class="matrix-wrap" role="img" aria-label="A two by two graph comparing belonging with contribution. High belonging and high contribution create stewardship.">
-<p class="matrix-y-title">How much I feel I belong here ↑</p>
+<p class="matrix-y-title">More belonging ↑</p>
 <div class="matrix-body"><div class="matrix-y-scale" aria-hidden="true"><span>A LOT</span><span>A LITTLE</span></div><div class="matrix-grid">
 <div class="matrix-cell"><strong>Comfortable consumer</strong></div>
 <div class="matrix-cell matrix-cell--focus"><strong>Stewardship</strong></div>
@@ -212,7 +213,7 @@
 <div class="matrix-cell"><strong>Used, not included</strong></div>
 </div></div>
 <div class="matrix-x-scale" aria-hidden="true"><span>A LITTLE</span><span>A LOT</span></div>
-<p class="matrix-x-title">How much I get to matter here →</p>
+<p class="matrix-x-title">More contribution →</p>
 </div>
 </article>
 </div>

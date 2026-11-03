@@ -553,9 +553,9 @@ details[open] > summary .disclosure-symbol { transform: rotate(45deg); }
  .org-proof__qualifier { font-size: .68rem; margin-bottom: 2rem; }
 }
 /* Class IV conditions and capacity matrix */
-.class-matrix { margin:0; color:#f4f0e9; }
+.class-matrix { position:relative; margin:0; padding-left:2.5rem; color:#f4f0e9; }
 .class-matrix__y-title,.class-matrix__x-title { color:#f4f0e9; font-size:.74rem; font-weight:600; letter-spacing:.03em; }
-.class-matrix__y-title { margin:0 0 .7rem 2.9rem; }
+.class-matrix__y-title { position:absolute; top:calc(50% - 1.4rem); left:.1rem; margin:0; writing-mode:vertical-rl; transform:translateY(-50%) rotate(180deg); white-space:nowrap; }
 .class-matrix__x-title { margin:.7rem 0 0 2.9rem; text-align:center; }
 .class-matrix__body { display:grid; grid-template-columns:2.1rem 1fr; gap:.7rem; }
 .class-matrix__y-scale { display:flex; flex-direction:column; justify-content:space-between; align-items:center; color:#8f9195; font-size:.58rem; font-weight:700; letter-spacing:.08em; padding:.2rem 0; }
@@ -568,4 +568,4 @@ details[open] > summary .disclosure-symbol { transform: rotate(45deg); }
 .class-matrix__focus strong,.class-matrix__focus span { color:#f4e5d7; }
 .class-matrix__x-scale { display:flex; justify-content:space-between; margin:.5rem 0 0 2.9rem; color:#8f9195; font-size:.58rem; font-weight:700; letter-spacing:.08em; }
 .class-matrix figcaption { margin:1.4rem 0 0 2.9rem; color:#aaa7a2; font-size:.72rem; line-height:1.6; max-width:560px; }
-@media(max-width:760px){.class-matrix__grid>div{min-height:105px;padding:.8rem}.class-matrix__grid strong{font-size:1.05rem}}
+@media(max-width:760px){.class-matrix{padding-left:1.85rem}.class-matrix__y-title{left:0;font-size:.62rem}.class-matrix__grid>div{min-height:105px;padding:.8rem}.class-matrix__grid strong{font-size:1.05rem}}

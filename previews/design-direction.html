@@ -1,0 +1,230 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="robots" content="noindex,nofollow">
+<title>Ascentric Design Direction 01</title>
+<link rel="stylesheet" href="../css/styles.css">
+<style>
+  :root {
+    --ink:#171916;
+    --paper:#f1eee5;
+    --rust:#9b4f2f;
+    --moss:#9fad55;
+    --line:rgba(23,25,22,.22);
+  }
+  * { box-sizing:border-box; }
+  html { scroll-behavior:smooth; }
+  body { margin:0; overflow-x:hidden; background:var(--paper); color:var(--ink); font-family:'Inter',sans-serif; }
+  body::before { content:""; position:fixed; inset:0; z-index:20; pointer-events:none; opacity:.035; background-image:url("data:image/svg+xml,%3Csvg viewBox='0 0 180 180' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='.8' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)' opacity='.8'/%3E%3C/svg%3E"); }
+  a { color:inherit; }
+  .study-bar { display:flex; justify-content:space-between; gap:1rem; padding:.65rem 2vw; background:var(--moss); border-bottom:1px solid var(--ink); font:600 .62rem/1 'Inter',sans-serif; letter-spacing:.14em; text-transform:uppercase; }
+  .study-bar span:last-child { opacity:.7; }
+  .site-nav { height:86px; padding:0 3vw; display:grid; grid-template-columns:1fr auto 1fr; align-items:center; border-bottom:1px solid var(--line); }
+  .wordmark { font-family:'Cormorant Garamond',serif; font-size:2rem; letter-spacing:-.04em; }
+  .nav-center { display:flex; gap:2.2rem; font-size:.7rem; letter-spacing:.08em; text-transform:uppercase; }
+  .nav-cta { justify-self:end; padding:.7rem 0; border-bottom:1px solid; font-size:.7rem; text-transform:uppercase; letter-spacing:.08em; }
+  .hero { min-height:calc(100svh - 113px); padding:6vw 3vw 3vw; position:relative; display:grid; grid-template-columns:minmax(0,1.15fr) minmax(320px,.85fr); gap:5vw; align-items:end; border-bottom:1px solid var(--ink); }
+  .folio { position:absolute; top:2rem; left:3vw; font-size:.64rem; letter-spacing:.13em; text-transform:uppercase; }
+  .hero h1 { position:relative; z-index:2; margin:0 0 2.5rem; max-width:860px; font-family:'Syne',sans-serif; font-size:clamp(3.8rem,8.4vw,9.2rem); font-weight:600; line-height:.82; letter-spacing:-.072em; text-transform:uppercase; }
+  .hero h1 em { display:block; color:var(--rust); font-family:'Cormorant Garamond',serif; font-size:1.06em; font-weight:400; line-height:.83; letter-spacing:-.04em; text-transform:none; }
+  .hero-intro { display:grid; grid-template-columns:1fr 1fr; gap:2rem; align-items:end; }
+  .hero-intro p { margin:0; max-width:430px; font-size:clamp(.9rem,1.2vw,1.05rem); line-height:1.75; }
+  .hero-intro a { justify-self:end; width:150px; height:150px; display:grid; place-items:center; border:1px solid var(--ink); border-radius:50%; font-size:.65rem; text-transform:uppercase; letter-spacing:.12em; transition:.25s; }
+  .hero-intro a:hover { background:var(--ink); color:var(--paper); }
+  .hero-media { height:min(68vh,720px); position:relative; align-self:center; }
+  .hero-media img { width:100%; height:100%; object-fit:cover; object-position:46% center; filter:saturate(.78) contrast(1.08); }
+  .hero-media::after { content:""; position:absolute; inset:0; box-shadow:inset 0 0 0 1px rgba(255,255,255,.3); }
+  .hero-note { position:absolute; right:-1.2rem; bottom:2rem; width:170px; padding:1rem; background:var(--moss); border:1px solid var(--ink); font-family:'Cormorant Garamond',serif; font-size:1.1rem; font-style:italic; line-height:1.2; transform:rotate(2deg); }
+  .contours { position:absolute; width:62%; height:auto; right:-18%; top:-9%; color:var(--rust); opacity:.26; pointer-events:none; }
+  .chapter { min-height:100svh; padding:8rem 3vw; border-bottom:1px solid var(--ink); }
+  .chapter-head { display:grid; grid-template-columns:10rem minmax(0,1fr) minmax(270px,.55fr); gap:4vw; align-items:start; margin-bottom:7rem; }
+  .chapter-no { font:600 .64rem/1 'Inter',sans-serif; letter-spacing:.15em; text-transform:uppercase; }
+  .chapter h2 { max-width:840px; margin:0; font-family:'Syne',sans-serif; font-size:clamp(3rem,6vw,7rem); font-weight:600; line-height:.92; letter-spacing:-.06em; text-transform:uppercase; }
+  .chapter-lead { max-width:420px; margin:0; font-size:.96rem; line-height:1.8; }
+  .map-section { background:var(--ink); color:var(--paper); }
+  .map-board { display:grid; grid-template-columns:1fr 1.35fr; gap:8vw; align-items:center; }
+  .map-copy blockquote { margin:0 0 3rem; font-family:'Cormorant Garamond',serif; font-size:clamp(2.2rem,4vw,4.7rem); line-height:1.02; font-weight:400; }
+  .map-copy p { max-width:520px; color:#c5c3bc; font-size:.9rem; line-height:1.8; }
+  .map-visual { min-height:600px; position:relative; border:1px solid #575952; background-image:linear-gradient(rgba(255,255,255,.07) 1px,transparent 1px),linear-gradient(90deg,rgba(255,255,255,.07) 1px,transparent 1px); background-size:12.5% 12.5%; }
+  .map-visual::before { content:"CULTURE CARTOGRAPHY™ / LIVE SYSTEM MAP"; position:absolute; top:1rem; left:1rem; font-size:.58rem; letter-spacing:.13em; }
+  .map-node { position:absolute; display:grid; place-items:center; width:95px; aspect-ratio:1; border:1px solid currentColor; border-radius:50%; color:#e4e1d9; font-size:.61rem; letter-spacing:.08em; text-transform:uppercase; text-align:center; }
+  .map-node::after { content:""; position:absolute; width:var(--reach); height:1px; left:100%; top:50%; background:currentColor; transform:rotate(var(--angle)); transform-origin:left; opacity:.5; }
+  .node-1 { left:9%; top:14%; --reach:220px; --angle:28deg; }
+  .node-2 { right:10%; top:23%; --reach:160px; --angle:130deg; color:#b5c65f; }
+  .node-3 { left:31%; top:45%; --reach:180px; --angle:-35deg; color:#c4704b; }
+  .node-4 { right:13%; bottom:12%; --reach:210px; --angle:178deg; }
+  .node-5 { left:8%; bottom:9%; --reach:170px; --angle:-37deg; }
+  .map-caption { position:absolute; right:1rem; bottom:1rem; width:180px; color:#aaa9a3; font-family:'Cormorant Garamond',serif; font-size:1rem; font-style:italic; line-height:1.25; }
+  .work-section { padding-bottom:0; }
+  .practice-list { border-top:1px solid var(--ink); }
+  .practice { display:grid; grid-template-columns:8rem 1fr 1fr auto; gap:3vw; align-items:center; min-height:180px; padding:1.5rem 0; border-bottom:1px solid var(--ink); }
+  .practice .index { font-size:.62rem; letter-spacing:.14em; }
+  .practice h3 { margin:0; font-family:'Syne',sans-serif; font-size:clamp(1.8rem,3.8vw,4.2rem); font-weight:500; line-height:.95; letter-spacing:-.05em; text-transform:uppercase; }
+  .practice p { max-width:420px; margin:0; color:#575752; font-size:.84rem; line-height:1.7; }
+  .practice .arrow { font-size:2.5rem; }
+  .practice:nth-child(2) { margin-inline:-3vw; padding-inline:3vw; background:var(--moss); }
+  .class-section { position:relative; overflow:hidden; background:#dfd7c8; }
+  .class-mark { position:absolute; right:-2vw; top:2rem; color:transparent; -webkit-text-stroke:1px rgba(23,25,22,.25); font-family:'Syne',sans-serif; font-size:clamp(18rem,42vw,42rem); font-weight:700; line-height:.8; letter-spacing:-.12em; }
+  .class-grid { position:relative; display:grid; grid-template-columns:.8fr 1.2fr; gap:8vw; align-items:end; min-height:680px; }
+  .class-copy .kicker { display:block; margin-bottom:2rem; font-size:.64rem; letter-spacing:.14em; text-transform:uppercase; }
+  .class-copy h2 { text-transform:none; font-family:'Cormorant Garamond',serif; font-weight:400; font-size:clamp(4rem,7vw,8rem); line-height:.83; letter-spacing:-.055em; }
+  .class-copy p { max-width:510px; margin:2rem 0 0; font-size:.92rem; line-height:1.8; }
+  .matrix { position:relative; padding:0 0 4rem 4.8rem; }
+  .matrix-y { position:absolute; left:0; top:42%; writing-mode:vertical-rl; transform:rotate(180deg); font-size:.58rem; letter-spacing:.13em; text-transform:uppercase; }
+  .matrix-grid { display:grid; grid-template-columns:1fr 1fr; border-left:2px solid var(--ink); border-bottom:2px solid var(--ink); }
+  .matrix-cell { min-height:175px; padding:1.25rem; display:flex; flex-direction:column; justify-content:flex-end; border-top:1px solid rgba(23,25,22,.35); border-right:1px solid rgba(23,25,22,.35); }
+  .matrix-cell strong { font-family:'Cormorant Garamond',serif; font-size:1.75rem; font-weight:500; line-height:1; }
+  .matrix-cell span { margin-top:.4rem; font-size:.64rem; line-height:1.45; }
+  .matrix-cell.focus { background:var(--rust); color:white; }
+  .matrix-x { margin-top:1rem; text-align:center; font-size:.58rem; letter-spacing:.13em; text-transform:uppercase; }
+  .field-section { padding:0; display:grid; grid-template-columns:1.05fr .95fr; background:var(--ink); color:var(--paper); }
+  .field-image { min-height:850px; position:relative; }
+  .field-image img { width:100%; height:100%; object-fit:cover; filter:grayscale(.22) saturate(.75); }
+  .field-image figcaption { position:absolute; right:0; bottom:0; width:55%; padding:1rem 1.3rem; background:var(--moss); color:var(--ink); font-size:.63rem; line-height:1.5; letter-spacing:.06em; }
+  .field-copy { padding:7rem 6vw; display:flex; flex-direction:column; justify-content:space-between; }
+  .field-copy h2 { margin:0; font-family:'Syne',sans-serif; font-size:clamp(3rem,5.3vw,6.5rem); font-weight:600; line-height:.88; letter-spacing:-.06em; text-transform:uppercase; }
+  .field-copy h2 em { color:#c4704b; font-family:'Cormorant Garamond',serif; font-weight:400; text-transform:none; }
+  .proofs { margin-top:6rem; border-top:1px solid #4b4d47; }
+  .proof { display:grid; grid-template-columns:7rem 1fr; padding:1.4rem 0; border-bottom:1px solid #4b4d47; align-items:baseline; }
+  .proof strong { color:var(--moss); font:500 2.5rem/1 'Syne',sans-serif; }
+  .proof span { color:#c4c2bb; font-size:.75rem; line-height:1.5; }
+  .closing { min-height:80svh; padding:8rem 3vw 3rem; display:flex; flex-direction:column; justify-content:space-between; background:var(--rust); color:#fff8ed; }
+  .closing p { font-size:.64rem; letter-spacing:.14em; text-transform:uppercase; }
+  .closing a { display:grid; grid-template-columns:1fr auto; gap:2rem; align-items:end; border-bottom:2px solid currentColor; padding-bottom:1.5rem; }
+  .closing a span:first-child { max-width:1200px; font-family:'Syne',sans-serif; font-size:clamp(3rem,8vw,9.5rem); font-weight:600; line-height:.84; letter-spacing:-.065em; text-transform:uppercase; }
+  .closing .arrow { font-size:clamp(3rem,7vw,8rem); }
+  .closing footer { display:flex; justify-content:space-between; margin-top:5rem; font-size:.6rem; letter-spacing:.1em; text-transform:uppercase; }
+  @media(max-width:900px) {
+    .site-nav { grid-template-columns:1fr auto; }.nav-center{display:none}
+    .hero { grid-template-columns:1fr; padding-top:7rem; }.hero-media{height:65vh}.hero-intro{max-width:660px}
+    .chapter-head { grid-template-columns:4rem 1fr; }.chapter-lead{grid-column:2}
+    .map-board,.class-grid,.field-section{grid-template-columns:1fr}.map-visual{min-height:520px}
+    .practice{grid-template-columns:3rem 1fr auto}.practice p{grid-column:2; grid-row:2}.practice .arrow{grid-column:3;grid-row:1/3}
+    .field-image{min-height:65vh}.field-copy{min-height:700px}
+  }
+  @media(max-width:600px) {
+    .study-bar span:last-child,.nav-cta{display:none}.site-nav{height:72px}.wordmark{font-size:1.7rem}
+    .hero{padding:6rem 5vw 2rem}.hero h1{font-size:clamp(3rem,12.8vw,3.3rem);letter-spacing:-.065em}.hero-intro{grid-template-columns:1fr}.hero-intro a{justify-self:start;width:118px;height:118px;padding:.75rem;text-align:center;font-size:.55rem;line-height:1.45}.hero-media{height:62vh}.hero-note{right:-.5rem}
+    .chapter{padding:5rem 5vw}.chapter-head{grid-template-columns:1fr;gap:1.5rem;margin-bottom:4rem}.chapter-lead{grid-column:auto}.chapter h2{font-size:3rem}
+    .map-board{gap:4rem}.map-visual{min-height:420px}.map-node{width:72px;font-size:.5rem}.map-caption{display:none}
+    .practice{grid-template-columns:2rem 1fr auto;gap:1rem;min-height:160px}.practice:nth-child(2){margin-inline:-5vw;padding-inline:5vw}.practice h3{font-size:2rem}
+    .class-mark{font-size:20rem}.class-grid{min-height:auto;gap:5rem}.matrix{padding-left:3.2rem}.matrix-cell{min-height:120px;padding:.75rem}.matrix-cell strong{font-size:1.25rem}
+    .field-copy{padding:5rem 5vw;min-height:650px}.field-copy h2{font-size:3.5rem}.proof{grid-template-columns:5.5rem 1fr}.proof strong{font-size:1.8rem}
+    .closing{padding:5rem 5vw 2rem}.closing footer{gap:2rem;align-items:flex-end}
+  }
+</style>
+</head>
+<body>
+<div class="study-bar"><span>Unlisted design study / Direction 01</span><span>Not the live site</span></div>
+<nav class="site-nav" aria-label="Design study navigation">
+  <a class="wordmark" href="../index.html">ascentric.io</a>
+  <div class="nav-center"><a href="#work">Work</a><a href="#class-iv">Class IV</a><a href="#field">About</a></div>
+  <a class="nav-cta" href="../contact.html">Start a conversation ↗</a>
+</nav>
+<main>
+  <header class="hero">
+    <span class="folio">Culture / Leadership / Conditions</span>
+    <div>
+      <h1>When the stakes get <em>higher,</em> how you work together matters more.</h1>
+      <div class="hero-intro">
+        <p>Culture transformation and leadership development for organizations navigating growth, transition, and complexity.</p>
+        <a href="#map">Read the field ↓</a>
+      </div>
+    </div>
+    <figure class="hero-media">
+      <img src="../ascentric_about_photo_shortlist_UPDATED/07-adam-river-field.jpeg" alt="Adam Aronovitz rowing on a river through a canyon.">
+      <figcaption class="hero-note">The work starts by reading the conditions, not reaching for a canned answer.</figcaption>
+    </figure>
+    <svg class="contours" viewBox="0 0 700 500" fill="none" aria-hidden="true">
+      <path d="M683 75C596 15 477 1 390 48c-65 35-80 101-159 121-71 18-141-13-196 30-51 40-38 104 11 135 62 40 147 14 204 59 38 30 45 82 88 98" stroke="currentColor"/>
+      <path d="M693 102c-91-58-187-66-270-28-73 34-97 100-178 121-75 19-151-8-194 42-38 44-11 92 37 112 65 28 136 5 191 47 33 25 47 67 79 90" stroke="currentColor"/>
+      <path d="M701 136c-83-50-168-53-245-20-76 33-114 94-191 113-72 17-139 0-168 44-27 41 7 72 52 83 63 15 115 5 163 41 26 20 42 49 65 65" stroke="currentColor"/>
+      <path d="M711 170c-71-37-149-35-214-8-71 29-116 81-185 96-63 13-113 5-129 38-17 35 25 49 66 53 51 6 88 9 124 35 18 14 33 31 48 42" stroke="currentColor"/>
+    </svg>
+  </header>
+
+  <section class="chapter map-section" id="map">
+    <header class="chapter-head">
+      <span class="chapter-no">01 / Diagnose</span>
+      <h2>Understand the system before prescribing the change.</h2>
+      <p class="chapter-lead">Most team and organizational engagements begin with discovery. Interviews, observation, data, and context reveal the patterns underneath what is getting hard.</p>
+    </header>
+    <div class="map-board">
+      <div class="map-copy">
+        <blockquote>Not every problem needs a workshop. Every intervention needs a reason.</blockquote>
+        <p>Culture Cartography™ makes the invisible system discussable. It helps leaders see how trust, decisions, roles, power, communication, and history interact before choosing what should change.</p>
+      </div>
+      <figure class="map-visual" aria-label="Abstract Culture Cartography system map">
+        <span class="map-node node-1">Trust</span>
+        <span class="map-node node-2">Decisions</span>
+        <span class="map-node node-3">Power</span>
+        <span class="map-node node-4">Roles</span>
+        <span class="map-node node-5">Story</span>
+        <figcaption class="map-caption">Look for the pattern, then choose the lever.</figcaption>
+      </figure>
+    </div>
+  </section>
+
+  <section class="chapter work-section" id="work">
+    <header class="chapter-head">
+      <span class="chapter-no">02 / The work</span>
+      <h2>One system. Different ways in.</h2>
+      <p class="chapter-lead">The practice is organized around what needs to become more capable, not around a menu of disconnected services.</p>
+    </header>
+    <div class="practice-list">
+      <a class="practice" href="../services.html#culture"><span class="index">01</span><h3>Culture transformation</h3><p>Change how trust, communication, ownership, decisions, relationships, and leadership actually work.</p><span class="arrow">↗</span></a>
+      <a class="practice" href="../class-iv-leadership.html"><span class="index">02</span><h3>Leadership development</h3><p>Build the conditions and experiences through which people learn to carry more complexity together.</p><span class="arrow">↗</span></a>
+      <a class="practice" href="../services.html#leadership"><span class="index">03</span><h3>Executive coaching</h3><p>Confidential development grounded in the real decisions, tensions, relationships, and patterns a leader is navigating.</p><span class="arrow">↗</span></a>
+    </div>
+  </section>
+
+  <section class="chapter class-section" id="class-iv">
+    <div class="class-mark" aria-hidden="true">IV</div>
+    <div class="class-grid">
+      <div class="class-copy">
+        <span class="kicker">03 / Class IV™</span>
+        <h2>Leadership for conditions without easy answers.</h2>
+        <p>Class IV names what the situation demands. Leadership development builds the capacity people need to meet those demands together.</p>
+      </div>
+      <figure class="matrix" aria-label="A two by two graph comparing challenge and belonging">
+        <span class="matrix-y">More belonging ↑</span>
+        <div class="matrix-grid">
+          <div class="matrix-cell"><strong>Comfort</strong><span>Safe, but not stretching</span></div>
+          <div class="matrix-cell focus"><strong>Growth + courage</strong><span>Supported and challenged</span></div>
+          <div class="matrix-cell"><strong>Disengagement</strong><span>Little connection or stretch</span></div>
+          <div class="matrix-cell"><strong>Self-protection</strong><span>Demand without safety</span></div>
+        </div>
+        <figcaption class="matrix-x">More challenge →</figcaption>
+      </figure>
+    </div>
+  </section>
+
+  <section class="field-section" id="field">
+    <figure class="field-image">
+      <img src="../ascentric_about_photo_shortlist_UPDATED/03-adam-teaching-cross-cultural.jpeg" alt="Adam facilitating a learning experience across cultures.">
+      <figcaption>Global Routes / experiential learning lineage / listening before assuming</figcaption>
+    </figure>
+    <div class="field-copy">
+      <div>
+        <h2>Shaped across cultures, <em>not just conference rooms.</em></h2>
+        <div class="proofs">
+          <div class="proof"><strong>35+</strong><span>countries where Adam has led programming</span></div>
+          <div class="proof"><strong>40+</strong><span>countries where trained facilitators have worked</span></div>
+          <div class="proof"><strong>30</strong><span>U.S. states where Adam has trained facilitators</span></div>
+          <div class="proof"><strong>20+</strong><span>years in leadership development and facilitation</span></div>
+        </div>
+      </div>
+      <p style="color:#aaa9a3;max-width:480px;font-size:.82rem;line-height:1.8;">Breadth does not create omniscience. It teaches humility, attention to context, and the discipline to stay curious before prescribing.</p>
+    </div>
+  </section>
+
+  <section class="closing">
+    <p>Ready to understand what is actually happening?</p>
+    <a href="../contact.html"><span>Start with the real question.</span><span class="arrow">↗</span></a>
+    <footer><span>Ascentric / Culture + Leadership</span><span>Design study 01 / November 2026</span></footer>
+  </section>
+</main>
+</body>
+</html>
