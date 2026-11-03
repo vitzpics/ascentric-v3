@@ -1,0 +1,252 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="robots" content="noindex, nofollow">
+<title>Emergent Leadership Preview | Ascentric</title>
+<link rel="icon" href="../favicon.ico" sizes="any">
+<link rel="stylesheet" href="../css/styles.css">
+<link rel="stylesheet" href="../css/refinement.css?v=credibility-5">
+<style>
+  .preview-bar { background:#eae6de; color:#16181d; padding:1rem 6%; font-size:.78rem; line-height:1.6; border-bottom:1px solid rgba(22,24,29,.14); }
+  .preview-bar strong { font-weight:600; }
+  .el-page { background:#f4f0e9; color:#16181d; }
+  .el-dark { background:#16181d; color:#f4f0e9; }
+  .el-hero { padding:7rem 0 6rem; }
+  .el-hero__grid, .el-split { display:grid; grid-template-columns:.9fr 1.1fr; gap:8%; align-items:start; }
+  .el-hero h1 { font-family:var(--font-display); font-size:clamp(3.4rem,7vw,7rem); font-weight:400; line-height:.94; letter-spacing:-.04em; }
+  .el-hero .lead { color:#d4d1cd; font-size:clamp(1.15rem,2vw,1.55rem); line-height:1.6; margin-bottom:1.5rem; }
+  .el-hero p:not(.eyebrow):not(.lead) { color:#aaa7a2; line-height:1.8; }
+  .el-section { padding:6rem 0; }
+  .el-section h2 { font-family:var(--font-display); font-size:clamp(2.5rem,5vw,4.5rem); font-weight:400; line-height:1.02; letter-spacing:-.025em; }
+  .el-section .lead { font-size:1.08rem; line-height:1.8; color:#625f5a; }
+  .el-dark .lead { color:#c8c7c5; }
+  .el-thesis { border-top:1px solid #3b3d41; padding-top:4rem; }
+  .el-thesis blockquote { font-family:var(--font-display); font-size:clamp(2.1rem,4.3vw,4rem); line-height:1.12; margin:0; max-width:1000px; }
+  .conditions { display:grid; grid-template-columns:repeat(5,1fr); margin-top:4rem; border-top:1px solid #c9c4bb; border-bottom:1px solid #c9c4bb; }
+  .condition { padding:2rem 1.25rem 2.3rem; border-right:1px solid #c9c4bb; }
+  .condition:last-child { border-right:0; }
+  .condition span { color:#9b6b43; font-size:.68rem; font-weight:700; letter-spacing:.12em; }
+  .condition h3 { font-family:var(--font-display); font-size:1.7rem; font-weight:400; margin:.7rem 0 .8rem; }
+  .condition p { color:#625f5a; font-size:.82rem; line-height:1.65; }
+  .models-intro { max-width:760px; margin-bottom:4rem; }
+  .models-intro p { color:#c8c7c5; line-height:1.8; margin-top:1.2rem; }
+  .model { border-top:1px solid #424449; padding-top:2rem; }
+  .model + .model { margin-top:4rem; }
+  .model__header { display:grid; grid-template-columns:.8fr 1.2fr; gap:3rem; margin-bottom:2rem; }
+  .model__header h3 { font-family:var(--font-display); font-size:clamp(2rem,3.8vw,3.4rem); font-weight:400; line-height:1.05; }
+  .model__header p { color:#aaa7a2; line-height:1.75; max-width:620px; }
+  .matrix-wrap { max-width:820px; margin:0 auto; }
+  .matrix-y-title, .matrix-x-title { color:#f4f0e9; font-size:.78rem; font-weight:600; letter-spacing:.03em; }
+  .matrix-y-title { margin:0 0 .75rem 3.4rem; }
+  .matrix-x-title { margin:.8rem 0 0 3.4rem; text-align:center; }
+  .matrix-body { display:grid; grid-template-columns:2.6rem 1fr; gap:.8rem; }
+  .matrix-y-scale { display:flex; flex-direction:column; justify-content:space-between; align-items:center; color:#8f9195; font-size:.62rem; font-weight:700; letter-spacing:.08em; padding:.25rem 0; }
+  .matrix-y-scale span { writing-mode:vertical-rl; transform:rotate(180deg); }
+  .matrix-grid { display:grid; grid-template-columns:1fr 1fr; border-left:2px solid #bab9b6; border-bottom:2px solid #bab9b6; }
+  .matrix-cell { min-height:150px; padding:1.5rem; display:flex; flex-direction:column; justify-content:flex-end; border-top:1px solid #3e4044; border-right:1px solid #3e4044; }
+  .matrix-cell strong { font-family:var(--font-display); font-size:clamp(1.55rem,2.8vw,2.5rem); font-weight:400; line-height:1; color:#f4f0e9; }
+  .matrix-cell span { margin-top:.55rem; color:#96989c; font-size:.72rem; line-height:1.45; }
+  .matrix-cell--focus { background:#5b4231; }
+  .matrix-cell--focus strong, .matrix-cell--focus span { color:#f4e5d7; }
+  .matrix-x-scale { display:flex; justify-content:space-between; margin:.6rem 0 0 3.4rem; color:#8f9195; font-size:.62rem; font-weight:700; letter-spacing:.08em; }
+  .supporting-models { display:grid; grid-template-columns:1fr 1fr; gap:3rem; margin-top:5rem; }
+  .model--small { margin-top:0!important; }
+  .model--small .model__header { display:block; min-height:170px; }
+  .model--small .model__header p { margin-top:1rem; }
+  .model--small .matrix-cell { min-height:120px; padding:1rem; }
+  .model--small .matrix-cell strong { font-size:clamp(1.2rem,2vw,1.75rem); }
+  .model--small .matrix-cell span { font-size:.67rem; }
+  .curriculum { display:grid; grid-template-columns:.8fr 1.2fr; gap:8%; }
+  .curriculum-steps { list-style:none; counter-reset:step; border-top:1px solid #c9c4bb; }
+  .curriculum-steps li { counter-increment:step; display:grid; grid-template-columns:3rem 1fr; gap:1rem; padding:1.4rem 0; border-bottom:1px solid #c9c4bb; }
+  .curriculum-steps li::before { content:"0" counter(step); color:#9b6b43; font-size:.7rem; font-weight:700; letter-spacing:.1em; padding-top:.25rem; }
+  .curriculum-steps strong { display:block; font-family:var(--font-display); font-size:1.45rem; font-weight:400; margin-bottom:.35rem; }
+  .curriculum-steps span { color:#625f5a; font-size:.84rem; line-height:1.6; }
+  .offer-grid { display:grid; grid-template-columns:1fr 1fr; gap:2rem; margin-top:3.5rem; }
+  .offer-card { background:#202227; color:#f4f0e9; border:1px solid #3e4044; padding:2rem; }
+  .offer-card h3 { font-family:var(--font-display); font-size:2rem; font-weight:400; margin-bottom:1rem; }
+  .offer-card p { color:#aaa7a2; line-height:1.7; }
+  .offer-card ul { list-style:none; margin-top:1.4rem; }
+  .offer-card li { color:#d4d1cd; font-size:.82rem; line-height:1.5; padding:.65rem 0; border-top:1px solid #34363a; }
+  .lineage { background:#dfd9cf; }
+  .lineage p { color:#625f5a; line-height:1.8; }
+  .lineage .proof-line { margin-top:2.5rem; font-family:var(--font-display); font-size:clamp(1.7rem,3vw,2.7rem); line-height:1.2; color:#16181d; }
+  .preview-close { padding:5rem 0; text-align:center; }
+  .preview-close h2 { font-family:var(--font-display); font-size:clamp(2.4rem,5vw,4.5rem); font-weight:400; }
+  .preview-close p { max-width:700px; margin:1.2rem auto 0; color:#625f5a; line-height:1.8; }
+  @media (max-width:900px) {
+    .conditions { grid-template-columns:1fr 1fr; }
+    .condition { border-bottom:1px solid #c9c4bb; }
+    .supporting-models { grid-template-columns:1fr; }
+    .model--small .model__header { min-height:0; }
+  }
+  @media (max-width:760px) {
+    .el-hero { padding:5rem 0 4rem; }
+    .el-hero__grid, .el-split, .model__header, .curriculum { grid-template-columns:1fr; gap:1.5rem; }
+    .el-section { padding:4rem 0; }
+    .conditions { grid-template-columns:1fr; }
+    .condition { border-right:0; }
+    .matrix-y-title { margin-left:2.5rem; }
+    .matrix-body { grid-template-columns:1.8rem 1fr; gap:.55rem; }
+    .matrix-cell { min-height:115px; padding:1rem .75rem; }
+    .matrix-cell strong { font-size:1.25rem; }
+    .matrix-x-scale, .matrix-x-title { margin-left:2.35rem; }
+    .supporting-models, .offer-grid { grid-template-columns:1fr; }
+  }
+</style>
+</head>
+<body class="refined-page el-page">
+<div class="preview-bar"><strong>Unlisted concept preview.</strong> This page is not linked from the website and is excluded from search indexing.</div>
+<main>
+<header class="el-hero el-dark">
+<div class="section-shell el-hero__grid">
+<div>
+<p class="eyebrow">Leadership development / Program design</p>
+<h1>Emergent Leadership</h1>
+</div>
+<div>
+<p class="lead">We do not manufacture leaders. We create the conditions in which leadership can emerge.</p>
+<p>Ascentric helps organizations, schools, companies, camps, and mission-driven programs design environments where people learn to lead through participation, practice, feedback, and real responsibility.</p>
+</div>
+</div>
+</header>
+
+<section class="el-section el-dark">
+<div class="section-shell el-thesis">
+<p class="eyebrow">The central idea</p>
+<blockquote>Leadership is not installed through information alone. It develops through the conditions people repeatedly inhabit.</blockquote>
+</div>
+</section>
+
+<section class="el-section">
+<div class="section-shell">
+<div class="el-split">
+<div>
+<p class="eyebrow">The conditions</p>
+<h2>What allows leadership to emerge?</h2>
+</div>
+<div>
+<p class="lead">Leadership grows when people have enough belonging to stay present, enough challenge to stretch, real ownership of what happens, honest reflection, and the opportunity to contribute to something larger than themselves.</p>
+<p style="color:#77736d; line-height:1.8; margin-top:1rem;">Together, these conditions form Ascentric’s B-CORC design lens. The acronym is less important than the question: does the environment invite people to become more capable together?</p>
+</div>
+</div>
+<div class="conditions">
+<article class="condition"><span>01</span><h3>Belonging</h3><p>Enough trust and connection to remain present, take interpersonal risks, and tell the truth.</p></article>
+<article class="condition"><span>02</span><h3>Challenge</h3><p>Enough uncertainty and difficulty that familiar answers are insufficient and growth becomes necessary.</p></article>
+<article class="condition"><span>03</span><h3>Ownership</h3><p>Real responsibility, meaningful choices, and consequences that cannot be handed back to the facilitator.</p></article>
+<article class="condition"><span>04</span><h3>Reflection</h3><p>Feedback, acknowledgment, repair, and meaning-making that turn experience into learning.</p></article>
+<article class="condition"><span>05</span><h3>Contribution</h3><p>The opportunity to matter to a group, purpose, place, or outcome larger than the individual.</p></article>
+</div>
+</div>
+</section>
+
+<section class="el-section el-dark">
+<div class="section-shell">
+<div class="models-intro">
+<p class="eyebrow">Three tensions</p>
+<h2>Leadership develops between competing needs.</h2>
+<p>The models are not personality tests or scores. They help leaders and program designers notice what an environment may be producing.</p>
+</div>
+
+<article class="model">
+<div class="model__header">
+<h3>Belonging × Challenge</h3>
+<p>Belonging without challenge can become comfort. Challenge without belonging produces self-protection. Development happens when people feel secure enough to remain present and stretched enough to discover new capacity.</p>
+</div>
+<div class="matrix-wrap" role="img" aria-label="A two by two graph comparing belonging with challenge. High belonging and high challenge create growth and courage.">
+<p class="matrix-y-title">How safe I feel staying present and being real ↑</p>
+<div class="matrix-body"><div class="matrix-y-scale" aria-hidden="true"><span>A LOT</span><span>A LITTLE</span></div><div class="matrix-grid">
+<div class="matrix-cell"><strong>Comfort</strong><span>Safe, but not stretching.</span></div>
+<div class="matrix-cell matrix-cell--focus"><strong>Growth + courage</strong><span>Supported and meaningfully challenged.</span></div>
+<div class="matrix-cell"><strong>Disengagement</strong><span>Little connection and little reason to stretch.</span></div>
+<div class="matrix-cell"><strong>Self-protection</strong><span>The demand is high, but safety is low.</span></div>
+</div></div>
+<div class="matrix-x-scale" aria-hidden="true"><span>A LITTLE</span><span>A LOT</span></div>
+<p class="matrix-x-title">How much the experience asks of me →</p>
+</div>
+</article>
+
+<div class="supporting-models">
+<article class="model model--small">
+<div class="model__header"><h3>Ownership × Reflection</h3><p>Experience does not automatically produce learning. People need something real to carry and structured opportunities to make meaning from what happened.</p></div>
+<div class="matrix-wrap" role="img" aria-label="A two by two graph comparing ownership with reflection. High ownership and high reflection create adaptive leadership.">
+<p class="matrix-y-title">How much responsibility I really carry ↑</p>
+<div class="matrix-body"><div class="matrix-y-scale" aria-hidden="true"><span>A LOT</span><span>A LITTLE</span></div><div class="matrix-grid">
+<div class="matrix-cell"><strong>Action without learning</strong></div>
+<div class="matrix-cell matrix-cell--focus"><strong>Adaptive leadership</strong></div>
+<div class="matrix-cell"><strong>Passive compliance</strong></div>
+<div class="matrix-cell"><strong>Insight without agency</strong></div>
+</div></div>
+<div class="matrix-x-scale" aria-hidden="true"><span>A LITTLE</span><span>A LOT</span></div>
+<p class="matrix-x-title">How honestly I learn from what happened →</p>
+</div>
+</article>
+
+<article class="model model--small">
+<div class="model__header"><h3>Belonging × Contribution</h3><p>Inclusion is incomplete when people are welcomed but never trusted to matter. Contribution turns membership into participation and participation into stewardship.</p></div>
+<div class="matrix-wrap" role="img" aria-label="A two by two graph comparing belonging with contribution. High belonging and high contribution create stewardship.">
+<p class="matrix-y-title">How much I feel I belong here ↑</p>
+<div class="matrix-body"><div class="matrix-y-scale" aria-hidden="true"><span>A LOT</span><span>A LITTLE</span></div><div class="matrix-grid">
+<div class="matrix-cell"><strong>Comfortable consumer</strong></div>
+<div class="matrix-cell matrix-cell--focus"><strong>Stewardship</strong></div>
+<div class="matrix-cell"><strong>Outsider</strong></div>
+<div class="matrix-cell"><strong>Used, not included</strong></div>
+</div></div>
+<div class="matrix-x-scale" aria-hidden="true"><span>A LITTLE</span><span>A LOT</span></div>
+<p class="matrix-x-title">How much I get to matter here →</p>
+</div>
+</article>
+</div>
+</div>
+</section>
+
+<section class="el-section">
+<div class="section-shell curriculum">
+<div>
+<p class="eyebrow">From framework to curriculum</p>
+<h2>Leadership development is an environment, not an event.</h2>
+<p class="lead" style="margin-top:1.5rem;">A workshop can introduce an idea. Development requires repeated opportunities to carry responsibility, encounter difficulty, receive feedback, make repairs, and apply learning to real work.</p>
+</div>
+<ol class="curriculum-steps">
+<li><div><strong>Read the conditions</strong><span>Understand what the context now demands and what participants must become able to carry.</span></div></li>
+<li><div><strong>Create the container</strong><span>Build agreements, belonging, purpose, and enough safety for people to remain present.</span></div></li>
+<li><div><strong>Give away responsibility</strong><span>Let participants make real choices, solve consequential problems, and contribute to the group.</span></div></li>
+<li><div><strong>Surface the group</strong><span>Allow patterns of authority, avoidance, conflict, coordination, and contribution to become visible.</span></div></li>
+<li><div><strong>Reflect and repair</strong><span>Use structured feedback, acknowledgment, and meaning-making without making shame the mechanism.</span></div></li>
+<li><div><strong>Transfer and embed</strong><span>Connect learning to actual decisions, relationships, roles, rituals, and operating practices.</span></div></li>
+</ol>
+</div>
+</section>
+
+<section class="el-section el-dark">
+<div class="section-shell">
+<div class="el-split">
+<div><p class="eyebrow">Leadership development architecture</p><h2>Build the system, not just the session.</h2></div>
+<div><p class="lead">Ascentric works with clients to define what leadership must look like in their context, design the experiences through which it develops, prepare the people who will hold the work, and embed learning into organizational life.</p></div>
+</div>
+<div class="offer-grid">
+<article class="offer-card"><h3>Organizations + companies</h3><p>Leadership systems grounded in the real work of leading.</p><ul><li>Emerging-leader and manager programs</li><li>Leadership cohorts and team development</li><li>Distributed leadership and decision-making</li><li>Facilitator and internal faculty development</li><li>Culture and operating-practice integration</li></ul></article>
+<article class="offer-card"><h3>Schools + experiential programs</h3><p>Developmental pathways where young people and adults learn through responsibility and participation.</p><ul><li>LIT and youth-leadership pathways</li><li>Educator and facilitator development</li><li>Experiential and place-based curricula</li><li>Community and group-development practices</li><li>Cross-cultural program design</li></ul></article>
+</div>
+</div>
+</section>
+
+<section class="el-section lineage">
+<div class="section-shell el-split">
+<div><p class="eyebrow">Built across contexts</p><h2>From leadership-in-training programs to organizational life.</h2></div>
+<div><p>For more than two decades, Adam has designed and led developmental experiences across camps, classrooms, cross-cultural programs, experiential education, leadership cohorts, facilitator training, and organizations.</p><p style="margin-top:1rem;">The settings have changed. The central question has remained remarkably consistent.</p><p class="proof-line">How do separate people become a capable “we”?</p></div>
+</div>
+</section>
+
+<section class="preview-close">
+<div class="section-shell">
+<p class="eyebrow">Preview question</p>
+<h2>Does this feel like the next level of the work?</h2>
+<p>This concept page is intentionally unlisted. If the architecture is right, the next pass would tighten the language, connect it to Class IV and Leadership Development, and decide what belongs publicly versus inside the curriculum.</p>
+</div>
+</section>
+</main>
+</body>
+</html>
